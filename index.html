@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolmo — coming soon</title>
+<meta name="description" content="Never miss the moment a match turns. Kolmo flags live esports the instant a game swings — the comebacks, the upsets, the moments when everything is on the line — in real time via Kairos, our intelligence terminal. Plus a community to watch and react with, built for every fan. Join the Discord.">
+<meta property="og:title" content="Kolmo — never miss the moment a match turns">
+<meta property="og:description" content="Kolmo flags live esports the instant a game swings — the comebacks, the upsets, the moments when everything is on the line — in real time via Kairos, our intelligence terminal. Launching soon.">
+<meta property="og:image" content="https://kolmo.app/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kolmo.app">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M14 8 L14 52 L58 52' stroke='%233ad6c4' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23,39 L28,44 L23,49 L18,44 Z' fill='%233ad6c4'/%3E%3Cpath d='M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z' fill='%233ad6c4'/%3E%3Cpath d='M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z' fill='%233ee0a6'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Outfit:wght@500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1822;--surface:#12151c;--surface-2:#171b24;--line:#222733;--line-soft:#1a1e27;
+  --text:#f4f6fa;--muted:#a2adbe;--dim:#7b869a;--live:#ff4655;--accent:#3ad6c4;--gold:#c9a24b;
+  --kairos:#3ee0a6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{background:transparent;color:var(--text);font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;position:relative}
+body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 16% 20%,rgba(58,160,255,.14),transparent 40%),radial-gradient(circle at 84% 28%,rgba(201,162,75,.10),transparent 42%),radial-gradient(circle at 50% 90%,rgba(58,214,196,.12),transparent 44%);filter:blur(34px);animation:aurora 22s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:38px 38px}
+@keyframes aurora{from{transform:translateY(-2%)}to{transform:translateY(2%)}}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;width:100%}
+
+header{padding:22px 0}
+.logo{font-family:'Outfit',sans-serif;font-weight:500;font-size:22px;letter-spacing:0;white-space:nowrap;display:flex;align-items:center;gap:9px;color:var(--text)}
+.logo .kmark{height:28px;width:28px;flex:none}
+
+main{flex:1;display:flex;align-items:center;padding:36px 0 56px}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media(max-width:880px){.grid{grid-template-columns:1fr}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(58,214,196,.08);border:1px solid rgba(58,214,196,.35);color:var(--accent);font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.8px;padding:6px 14px;border-radius:99px;margin-bottom:20px}
+.pill .ld{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(30px,4.8vw,48px);font-weight:700;line-height:1.12;letter-spacing:-.5px;margin-bottom:18px}
+.grad{background:linear-gradient(100deg,var(--accent),#7bd7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:16.5px;color:var(--muted);max-width:520px;margin-bottom:26px;line-height:1.65}
+.lede b{color:var(--text);font-weight:600}
+.form{display:flex;gap:8px;max-width:440px}
+.form input{flex:1;min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;color:var(--text);font-size:14px;font-family:'Archivo',sans-serif;padding:13px 14px;outline:none;transition:border-color .15s}
+.form input:focus{border-color:var(--accent)}
+.btn{background:var(--accent);color:#06231f;border:none;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;padding:13px 20px;border-radius:9px;cursor:pointer;white-space:nowrap;transition:.14s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.msg{display:none;font-family:'Archivo',sans-serif;font-size:13px;color:var(--kairos);margin-top:12px}
+.fine{font-size:12px;color:var(--dim);margin-top:12px}
+@media(max-width:520px){.form{flex-direction:column}}
+.feats{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:12.5px;color:var(--muted)}
+.feats span{display:inline-flex;align-items:center;gap:7px}
+.feats .d{color:var(--gold);font-family:'Archivo',sans-serif}
+
+/* Terminal */
+.term{background:var(--surface);border:1px solid rgba(201,162,75,.4);clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);padding:22px;filter:drop-shadow(0 0 34px rgba(201,162,75,.14))}
+.term-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.term-title{font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:1.6px;color:var(--gold)}
+.term-live{display:inline-flex;align-items:center;gap:6px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:var(--live)}
+.term-live .ld{width:7px;height:7px;border-radius:50%;background:var(--live);animation:pulse 1.2s infinite}
+.term-match{display:flex;align-items:center;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:13px;margin-bottom:6px}
+.term-match .ta{color:var(--live)}.term-match .tb{color:#7bd7ff}
+.term-sub{font-size:11.5px;color:var(--dim);margin-bottom:14px}
+.prob-chart{position:relative;height:150px;border:1px solid var(--line-soft);border-radius:8px;background:var(--surface-2);overflow:hidden;margin-bottom:12px}
+.prob-chart svg{display:block;width:100%;height:100%}
+.midline{position:absolute;left:0;right:0;top:50%;border-top:1px dashed #2a3040}
+.prob-label{position:absolute;top:8px;left:10px;font-family:'Archivo',sans-serif;font-size:11px;color:var(--muted)}
+.prob-now{position:absolute;top:8px;right:10px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:var(--kairos)}
+.term.flash{animation:kflash 1.1s ease-out}
+@keyframes kflash{0%{filter:drop-shadow(0 0 34px rgba(62,224,166,.55))}100%{filter:drop-shadow(0 0 34px rgba(201,162,75,.14))}}
+.feed{display:flex;flex-direction:column;gap:7px;max-height:118px;overflow:hidden}
+.feed-row{display:flex;align-items:center;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:11.5px;color:var(--muted);border:1px solid var(--line-soft);border-radius:7px;padding:7px 10px;background:rgba(255,255,255,.015)}
+.feed-row.kai{border-color:rgba(62,224,166,.45);color:var(--text)}
+.feed-row.kai .fv{color:var(--kairos)}
+.feed-row .fv{font-weight:700}
+.legend{display:flex;gap:16px;margin-top:12px;font-size:11px;color:var(--dim)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
+.lg-cal{background:#3aa0ff}.lg-kai{background:var(--kairos)}
+
+footer{padding:22px 0;font-size:12.5px;color:var(--dim);border-top:1px solid var(--line)}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a{color:inherit;text-decoration:none}
+.foot a:hover{color:var(--text)}
+.foot-links{display:flex;gap:20px}
+.mono{font-family:'Archivo',sans-serif}
+
+@media(prefers-reduced-motion:reduce){
+  body::before{animation:none}
+  .pill .ld,.term-live .ld{animation:none}
+  .term.flash{animation:none}
+}
+</style>
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_AtPYLmrZTghA44gFeAnaYQphAHhEV82q7BsDPrgFDJ7D', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+    })
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="logo" aria-label="Kolmo">
+      <svg class="kmark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M14,8 L14,52 L58,52" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23,39 L28,44 L23,49 L18,44 Z" fill="var(--accent)"/>
+        <path d="M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z" fill="var(--accent)"/>
+        <path d="M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z" fill="var(--kairos)"/>
+      </svg>kolmo
+    </span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap grid">
+    <div>
+      <div class="pill"><span class="ld"></span>COMING SOON</div>
+      <h1>A new paradigm for <span class="grad">esports.</span></h1>
+      <p class="lede">Kolmo is an esports platform that alerts you when the match explodes: <b>the comebacks, the turnarounds, the moments the crowd loses it.</b> And a community to enjoy them with, built for every fan.</p>
+      <a class="btn" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14px;padding:14px 24px" href="https://discord.gg/nsefc492X">
+        <svg width="20" height="15" viewBox="0 0 71 55" fill="currentColor" aria-hidden="true"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.4.4l-1.8 3.7a54 54 0 0 0-16.2 0L25.6.4a58.4 58.4 0 0 0-14.7 4.6C1.6 18.7-.9 32.1.3 45.4a58.9 58.9 0 0 0 18 9.1 43.2 43.2 0 0 0 3.9-6.3 38 38 0 0 1-6.1-2.9l1.5-1.2a41.9 41.9 0 0 0 35.8 0l1.5 1.2a38.1 38.1 0 0 1-6.1 3 43 43 0 0 0 3.8 6.2 58.7 58.7 0 0 0 18-9.1c1.5-15.4-2.6-28.7-10.6-40.5ZM23.7 37.3c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.5 3.3 6.4 7.2c0 4-2.8 7.2-6.4 7.2Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.5 3.3 6.4 7.2c0 4-2.8 7.2-6.4 7.2Z"/></svg>
+        Join the Discord
+      </a>
+      <p class="fine" style="margin-top:14px">Not on Discord? <a href="#" id="emailToggle" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Get email updates</a></p>
+      <form class="form" id="emailForm" style="display:none;margin-top:12px" onsubmit="return joinList(event)">
+        <input type="email" id="email" placeholder="you@email.com" required aria-label="Email address">
+        <button class="btn" type="submit">Notify me</button>
+      </form>
+      <p class="msg" id="msg">◆ You're on the list. We'll email you before launch.</p>
+      <p class="fine">Early members get the ◆ early role — and first access to the Kairos moments on Discord.</p>
+      <div class="feats">
+        <span><span class="d">◆</span> Kairos live alerts</span>
+        <span><span class="d">◆</span> Real-time match intelligence</span>
+        <span><span class="d">◆</span> Watch &amp; chat with fans</span>
+      </div>
+    </div>
+
+    <div class="term" id="termPanel" aria-label="Live Kairos terminal demo">
+      <div class="term-head">
+        <span class="term-title">◆ KAIROS TERMINAL</span>
+        <span class="term-live"><span class="ld"></span>PREVIEW</span>
+      </div>
+      <div class="term-match"><span class="ta">T1</span><span style="color:var(--dim)">bo5 · map 5</span><span class="tb">BLG</span></div>
+      <div class="term-sub">Simulated match · this is how Kairos reads a live game</div>
+      <div class="prob-chart">
+        <span class="prob-label">T1 Win %</span>
+        <span class="prob-now" id="probNow">38%</span>
+        <div class="midline"></div>
+        <svg id="probSvg" viewBox="0 0 400 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </div>
+      <div class="feed" id="feed"></div>
+      <div class="legend"><span><i class="lg-cal"></i>Probability</span><span><i class="lg-kai"></i>Kairos moment</span></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mono">Kolmo — for the moments the crowd loses it.</span>
+    <div class="foot-links">
+      <a href="https://discord.gg/nsefc492X">Discord</a>
+      <a href="mailto:early@kolmo.app">Contact</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">Kolmo is a media and intelligence platform. We publish probabilities for context and entertainment — not odds, not betting advice, not a wagering product.</div>
+</footer>
+
+<script>
+document.getElementById('emailToggle').addEventListener('click',function(e){
+  e.preventDefault();
+  var f=document.getElementById('emailForm');
+  f.style.display='flex';
+  this.parentElement.style.display='none';
+  document.getElementById('email').focus();
+});
+function joinList(e){
+  e.preventDefault();
+  /* Wire to your email provider / CRM here — replace with a form action
+     or fetch() to your endpoint (Mailchimp, ConvertKit, Airtable, etc). */
+  document.getElementById('msg').style.display='block';
+  document.getElementById('emailForm').style.display='none';
+  return false;
+}
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var svg=document.getElementById('probSvg');
+  var probNow=document.getElementById('probNow');
+  var feedEl=document.getElementById('feed');
+  var term=document.getElementById('termPanel');
+  var W=400,H=150,N=90;
+  var pts=[],p=0.38;
+  function clamp(v){return Math.max(0.06,Math.min(0.94,v));}
+  for(var i=0;i<N;i++){pts.push(p);p=clamp(p+(Math.random()-0.5)*0.03);}
+  var acts=['Pickoff','Teamfight','Baron','Tower dive','Baron steal','Ace','Dragon soul'];
+  var moments=[];
+  function draw(){
+    var d='',mk='';
+    for(var i=0;i<N;i++){
+      var x=i/(N-1)*W, y=H-pts[i]*H;
+      d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';
+    }
+    moments.forEach(function(m){
+      if(m.i<0)return;
+      var x=m.i/(N-1)*W, y=H-m.p*H;
+      mk+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="#3ee0a6"/>';
+    });
+    svg.innerHTML='<path d="'+d+'" fill="none" stroke="#3aa0ff" stroke-width="2"/>'+mk;
+    probNow.textContent=Math.round(pts[N-1]*100)+'%';
+  }
+  function addFeed(text,val,kai){
+    var row=document.createElement('div');
+    row.className='feed-row'+(kai?' kai':'');
+    row.innerHTML='<span>'+(kai?'⚡ KAIROS · ':'')+text+'</span><span class="fv">'+val+'</span>';
+    feedEl.insertBefore(row,feedEl.firstChild);
+    while(feedEl.children.length>3)feedEl.removeChild(feedEl.lastChild);
+  }
+  addFeed('Teamfight · BLG','-4.2%',false);
+  addFeed('Model sync · map 5 start','50.0%',false);
+  function tick(){
+    var last=pts[N-1];
+    var step=(Math.random()-0.5)*0.035;
+    var kai=Math.random()<0.06;
+    if(kai)step+=(last<0.5?1:-1)*(0.14+Math.random()*0.1);
+    var next=clamp(last+step);
+    pts.push(next);pts.shift();
+    moments.forEach(function(m){m.i--;});
+    moments=moments.filter(function(m){return m.i>=0;});
+    if(kai){
+      moments.push({i:N-1,p:next});
+      var up=next>last;
+      var d=(next-last)*100;
+      addFeed(acts[Math.floor(Math.random()*acts.length)]+' · '+(up?'T1':'BLG'),(d>0?'+':'')+d.toFixed(1)+'%',true);
+      if(!reduce){term.classList.remove('flash');void term.offsetWidth;term.classList.add('flash');}
+    }
+    draw();
+  }
+  draw();
+  if(!reduce)setInterval(tick,900);
+  else{for(var j=0;j<10;j++)tick();draw();}
+})();
+</script>
+</body>
+</html>
