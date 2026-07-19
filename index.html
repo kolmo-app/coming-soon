@@ -137,6 +137,7 @@ footer{padding:22px 0;font-size:12.5px;color:var(--dim);border-top:1px solid var
         <button class="btn" type="submit">Notify me</button>
       </form>
       <p class="msg" id="msg">◆ You're on the list. We'll email you before launch.</p>
+      <p class="msg" id="formErr" style="color:var(--live)"></p>
       <p class="fine">Early members get the ◆ early role — and first access to the Kairos moments on Discord.</p>
       <div class="feats">
         <span><span class="d">◆</span> Kairos live alerts</span>
@@ -183,12 +184,39 @@ document.getElementById('emailToggle').addEventListener('click',function(e){
   this.parentElement.style.display='none';
   document.getElementById('email').focus();
 });
-function joinList(e){
+async function joinList(e){
   e.preventDefault();
-  /* Wire to your email provider / CRM here — replace with a form action
-     or fetch() to your endpoint (Mailchimp, ConvertKit, Airtable, etc). */
-  document.getElementById('msg').style.display='block';
-  document.getElementById('emailForm').style.display='none';
+  var form=document.getElementById('emailForm');
+  var btn=form.querySelector('button[type="submit"]');
+  var errEl=document.getElementById('formErr');
+  var email=document.getElementById('email').value.trim();
+  errEl.style.display='none';
+  var label=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
+  try{
+    var res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        access_key:'46f4fa5e-3a7a-4145-81b8-c41137da6ea0',
+        subject:'New Kolmo early signup',
+        from_name:'Kolmo — coming soon',
+        email:email,
+        message:'New early-access signup: '+email
+      })
+    });
+    var data=await res.json();
+    if(data.success){
+      if(window.posthog)posthog.capture('waitlist_signup',{source:'coming_soon'});
+      document.getElementById('msg').style.display='block';
+      form.style.display='none';
+    }else{
+      throw new Error(data.message||'Submission failed');
+    }
+  }catch(err){
+    errEl.textContent='Something went wrong — please try again, or email early@kolmo.app.';
+    errEl.style.display='block';
+    btn.disabled=false; btn.textContent=label;
+  }
   return false;
 }
 (function(){
