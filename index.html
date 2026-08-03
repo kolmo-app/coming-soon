@@ -1,50 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kolmo | Real-Time Esports Intelligence</title>
-<meta name="description" content="Kolmo is the real-time intelligence layer for esports—tracking momentum, identifying turning points, and surfacing the matches that matter.">
-<meta property="og:title" content="Kolmo | Real-Time Esports Intelligence">
-<meta property="og:description" content="AI-powered real-time esports intelligence for League of Legends and CS2. Kolmo identifies turning points, momentum shifts, and the matches that matter.">
-<meta property="og:image" content="https://kolmo.app/og-image.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kolmo.app">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M14 8 L14 52 L58 52' stroke='%233ad6c4' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23,39 L28,44 L23,49 L18,44 Z' fill='%233ad6c4'/%3E%3Cpath d='M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z' fill='%233ad6c4'/%3E%3Cpath d='M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z' fill='%233ee0a6'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" href="favicon.ico" sizes="any">
-
-<link rel="canonical" href="https://kolmo.app/">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@graph":[
-  {
-   "@type":"Organization",
-   "name":"Kolmo",
-   "url":"https://kolmo.app",
-   "logo":"https://kolmo.app/og-image.png",
-   "sameAs":["https://discord.gg/nsefc492X"]
-  },
-  {
-   "@type":"SoftwareApplication",
-   "name":"Kolmo",
-   "applicationCategory":"SportsApplication",
-   "operatingSystem":"Web",
-   "description":"AI-powered real-time esports intelligence platform for live match analysis, momentum detection and win probability.",
-   "url":"https://kolmo.app"
-  }
- ]
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Outfit:wght@500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence</title>
+<meta content="Kolmo is building the intelligence layer for esports. Powered by Kairos, our AI engine identifies decisive moments in live League of Legends and Counter-Strike 2 matches. Experience Kairos on Discord before Kairos Terminal launches." name="description"/>
+<meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" property="og:title"/>
+<meta content="AI-powered real-time esports intelligence. Experience Kairos on Discord before Kairos Terminal launches." property="og:description"/>
+<meta content="https://kolmo.app/og-image.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="https://kolmo.app/" property="og:url"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M14 8 L14 52 L58 52' stroke='%233ad6c4' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23,39 L28,44 L23,49 L18,44 Z' fill='%233ad6c4'/%3E%3Cpath d='M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z' fill='%233ad6c4'/%3E%3Cpath d='M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z' fill='%233ee0a6'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Outfit:wght@500&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --bg:#0f1822;--surface:#12151c;--surface-2:#171b24;--line:#222733;--line-soft:#1a1e27;
@@ -122,6 +97,330 @@ footer{padding:22px 0;font-size:12.5px;color:var(--dim);border-top:1px solid var
   .pill .ld,.term-live .ld{animation:none}
   .term.flash{animation:none}
 }
+
+/* Stable responsive redesign */
+header{padding:16px 0}
+main{flex:1;display:block;padding:20px 0 36px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(430px,1.08fr);gap:40px;align-items:center}
+.hero-copy,.terminal-column{min-width:0}
+.hero-sub{font-size:17px;font-weight:600;color:var(--muted);margin:-8px 0 16px}
+.discord-cta{display:inline-flex;text-decoration:none;font-size:14px;padding:14px 22px}
+#emailToggle{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+#formErr{color:var(--live)}
+
+.term{padding:19px}
+.match-context{color:var(--dim);font-size:11px}
+.kairos-status{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px;border:1px solid rgba(62,224,166,.4);border-radius:9px;background:rgba(62,224,166,.055);margin-bottom:10px}
+.status-kicker{font-size:10px;letter-spacing:1.4px;color:var(--kairos);font-weight:700}
+.status-title{font-family:'Chakra Petch',sans-serif;font-size:19px;font-weight:700}
+.confidence{text-align:right}.confidence strong{display:block;font-size:21px;color:var(--kairos);line-height:1}.confidence span{font-size:9px;color:var(--dim);text-transform:uppercase}
+.intel-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:10px}
+.intel-card{border:1px solid var(--line-soft);border-radius:8px;background:var(--surface-2);padding:11px}
+.metric-label{font-size:9.5px;letter-spacing:1px;color:var(--dim);text-transform:uppercase}
+.metric-value{font-family:'Chakra Petch',sans-serif;font-size:23px;font-weight:700;margin-top:3px}
+.metric-shift{font-size:11px;font-weight:700;color:var(--kairos)}
+.prob-bar{height:7px;border-radius:99px;background:#252b37;overflow:hidden;margin-top:8px}
+.prob-bar span{display:block;height:100%;width:64%;background:linear-gradient(90deg,#3aa0ff,var(--kairos))}
+.reason-list{list-style:none;display:grid;gap:5px;margin-top:7px;font-size:11px;color:var(--muted)}
+.reason-list li::before{content:"◆";color:var(--gold);font-size:8px;margin-right:6px}
+.signal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
+.signal{border:1px solid var(--line-soft);border-radius:8px;padding:8px;background:rgba(255,255,255,.015)}
+.signal span{display:block;font-size:9px;color:var(--dim);text-transform:uppercase;margin-bottom:2px}
+.signal strong{font-size:10.5px}
+.alert-preview{padding:10px;border:1px solid rgba(58,214,196,.25);border-radius:8px;background:rgba(58,214,196,.035)}
+.alert-preview strong{display:block;font-size:11.5px}.alert-preview span{font-size:10px;color:var(--muted)}
+
+.story-section{padding:42px 0 52px;border-top:1px solid var(--line);background:rgba(8,12,18,.18)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.kairos-note{padding:18px;border:1px solid rgba(201,162,75,.28);border-radius:12px;background:rgba(201,162,75,.04)}
+.definition-head{display:flex;justify-content:space-between;margin-bottom:9px}
+.definition-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--gold)}
+.definition-type{font-size:10px;color:var(--dim)}
+.definition-title{font-family:'Chakra Petch',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
+.definition-title small{font-family:'Archivo',sans-serif;font-size:12px;font-weight:500;color:var(--dim)}
+.definition-copy{display:grid;gap:7px;color:var(--muted);font-size:12.5px}
+.definition-copy strong{color:var(--text)}.brand-line{font-family:'Chakra Petch',sans-serif;font-size:18px;color:var(--text)}
+.definition-flow{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+.definition-flow span{padding:5px 8px;border:1px solid var(--line-soft);border-radius:99px;font-size:10px;color:var(--muted)}
+.definition-flow b{color:var(--text)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.feat-card{min-height:58px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.018);font-size:13px;font-weight:600;display:flex;align-items:center;color:var(--text)}
+.region-card{margin-top:10px;padding:15px;border:1px solid rgba(58,214,196,.22);border-radius:10px;background:rgba(58,214,196,.04)}
+.region-card strong{display:block;font-family:'Chakra Petch',sans-serif;font-size:16px;margin-bottom:4px}
+.region-card p{font-size:12.5px;color:var(--muted)}
+
+@media(max-width:880px){
+  .hero-grid,.story-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .intel-grid,.signal-row,.feature-grid{grid-template-columns:1fr}
+  .hero-sub{font-size:15px}
+}
+
+/* Latest layout refinements */
+.terminal-column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.kairos-hero-definition{
+  padding:11px 14px;
+  border:1px solid rgba(201,162,75,.28);
+  border-radius:10px;
+  background:rgba(201,162,75,.045);
+}
+.kairos-hero-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:4px;
+}
+.kairos-word{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  color:var(--gold);
+}
+.kairos-greek{
+  font-size:10px;
+  color:var(--dim);
+}
+.kairos-hero-definition p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+.kairos-hero-definition strong{color:var(--text)}
+
+.feature-line{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:11.5px;
+  line-height:1.4;
+}
+.feature-line > span:not(.feature-separator){
+  white-space:nowrap;
+}
+.feature-separator{
+  color:var(--gold);
+  font-size:9px;
+}
+.story-section{
+  padding:24px 0 32px;
+}
+.story-grid{
+  display:block;
+}
+.region-wide{
+  max-width:760px;
+  margin:0 auto;
+}
+.region-wide .region-card{
+  margin:0;
+  text-align:center;
+}
+
+@media(max-width:600px){
+  .feature-line{
+    gap:6px;
+    font-size:10.5px;
+  }
+  .feature-line > span:not(.feature-separator){
+    white-space:normal;
+  }
+  .kairos-hero-head{
+    align-items:flex-start;
+  }
+}
+
+.kairos-hero-definition{padding:14px 18px}
+.kairos-word{font-size:14px!important;letter-spacing:1.8px}
+.kairos-greek{font-size:14px!important;color:var(--dim)}
+.kairos-hero-definition p{
+ font-size:16px!important;
+ line-height:1.5;
+ margin-top:8px;
+}
+.kairos-hero-definition p strong{
+ display:block;
+ font-size:20px;
+ margin-bottom:6px;
+ color:var(--text);
+}
+
+/* Updated feature layout */
+.feature-grid-inline{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px 18px;
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:12px;
+}
+.feature-item{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-width:0;
+}
+.feature-diamond{
+  color:var(--gold);
+  font-size:9px;
+  flex:none;
+}
+
+/* Updated Kairos definition hierarchy */
+.kairos-heading-inline{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.kairos-hero-definition{
+  padding:14px 18px;
+}
+.kairos-word{
+  font-size:14px!important;
+  letter-spacing:1.8px;
+}
+.kairos-greek{
+  font-size:13px!important;
+  color:var(--dim);
+}
+.kairos-hero-definition p{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  margin:8px 0 0;
+}
+.kairos-definition-quote{
+  color:var(--dim);
+  font-size:12.5px;
+  font-style:italic;
+  font-weight:400;
+}
+.kairos-brand-copy{
+  color:var(--text);
+  font-family:'Chakra Petch',sans-serif;
+  font-size:21px;
+  font-weight:600;
+  line-height:1.2;
+}
+.kairos-brand-copy strong{
+  color:var(--text);
+}
+.kairos-find-it{
+  color:var(--kairos);
+  font-family:'Chakra Petch',sans-serif;
+  font-size:21px;
+  font-weight:700;
+  line-height:1.15;
+}
+
+@media(max-width:520px){
+  .feature-grid-inline{
+    grid-template-columns:1fr;
+    gap:7px;
+  }
+}
+
+/* Regional intelligence section */
+.region-section{
+  padding:18px 0 28px;
+}
+.region-banner{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:6px 22px;
+  align-items:start;
+  padding:18px 20px;
+  border:1px solid rgba(58,214,196,.22);
+  border-radius:12px;
+  background:rgba(58,214,196,.04);
+}
+.region-kicker{
+  grid-row:1 / span 2;
+  padding-top:3px;
+  color:var(--accent);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  white-space:nowrap;
+}
+.region-banner h2{
+  font-family:'Chakra Petch',sans-serif;
+  font-size:18px;
+  line-height:1.2;
+  margin:0;
+}
+.region-banner p{
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:1.6;
+  max-width:760px;
+}
+@media(max-width:650px){
+  .region-banner{
+    grid-template-columns:1fr;
+    gap:7px;
+  }
+  .region-kicker{
+    grid-row:auto;
+  }
+}
+
+/* Increase prominence of the definition quote */
+.kairos-definition-quote{
+  font-size:17px !important;
+  line-height:1.35;
+  color:var(--text);
+  opacity:.9;
+  font-style:italic;
+  margin-bottom:6px;
+}
+
+/* Refined Kairos hero typography */
+.kairos-definition-quote{
+  font-size:15px !important;
+  color:var(--muted) !important;
+  opacity:1;
+  margin-bottom:10px;
+}
+.kairos-brand-line{
+  display:block;
+  width:100%;
+  font-family:'Chakra Petch',sans-serif;
+  font-size:23px;
+  font-weight:600;
+  line-height:1.2;
+  color:var(--text);
+}
+.kairos-brand-line strong{
+  font-weight:700;
+  color:var(--text);
+}
+
+/* Final typography refinement */
+.kairos-brand-line{
+  font-size:20px !important;
+  line-height:1.22;
+}
+.status-title{
+  font-size:18px !important;
+}
+
+
+.kairos-brand-line{
+  font-size:18px !important;
+  line-height:1.22 !important;
+}
+
 </style>
 <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -131,178 +430,190 @@ footer{padding:22px 0;font-size:12.5px;color:var(--dim);border-top:1px solid var
         person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
     })
 </script>
-</head>
+<link href="https://kolmo.app/" rel="canonical"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" name="twitter:title"/><meta content="AI-powered real-time esports intelligence. Experience Kairos on Discord before Kairos Terminal launches." name="twitter:description"/><meta content="https://kolmo.app/og-image.png" name="twitter:image"/><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kolmo.app/#organization",
+      "name": "Kolmo",
+      "legalName": "MLEM, LLC",
+      "url": "https://kolmo.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kolmo.app/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "sameAs": [
+        "https://discord.gg/nsefc492X"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kolmo.app/#website",
+      "url": "https://kolmo.app/",
+      "name": "Kolmo",
+      "publisher": {
+        "@id": "https://kolmo.app/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://kolmo.app/#kairos-terminal",
+      "name": "Kairos Terminal",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "Web",
+      "url": "https://kolmo.app/",
+      "description": "Kairos Terminal is Kolmo's flagship real-time esports intelligence product, powered by the Kairos AI engine. It identifies decisive moments, momentum shifts, and live win-probability changes in esports matches.",
+      "creator": {
+        "@id": "https://kolmo.app/#organization"
+      },
+      "isAccessibleForFree": true
+    }
+  ]
+}</script></head>
 <body>
-
 <header>
-  <div class="wrap">
-    <span class="logo" aria-label="Kolmo">
-      <svg class="kmark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <path d="M14,8 L14,52 L58,52" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M23,39 L28,44 L23,49 L18,44 Z" fill="var(--accent)"/>
-        <path d="M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z" fill="var(--accent)"/>
-        <path d="M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z" fill="var(--kairos)"/>
-      </svg>kolmo
+<div class="wrap">
+<span aria-label="Kolmo" class="logo">
+<svg aria-hidden="true" class="kmark" fill="none" viewbox="0 0 64 64">
+<path d="M14,8 L14,52 L58,52" stroke="var(--accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M23,39 L28,44 L23,49 L18,44 Z" fill="var(--accent)"></path>
+<path d="M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z" fill="var(--accent)"></path>
+<path d="M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z" fill="var(--kairos)"></path>
+</svg>kolmo
     </span>
-  </div>
+</div>
 </header>
-
 <main>
-  <div class="wrap grid">
-    <div>
-      <div class="pill"><span class="ld"></span>COMING SOON</div>
-      <h1>We know when the match <span class="grad">turns.</span></h1>
-      <h2 style="font-size:18px;font-weight:600;color:var(--muted);margin:-8px 0 18px;font-family:'Archivo',sans-serif;">AI-powered real-time esports intelligence for League of Legends and CS2.</h2>
-      <p class="lede">Kolmo understands every live match in real time—tracking momentum, identifying turning points, and surfacing the moments that matter. <b>Built for every fan. Powered by Kairos.</b></p><div style="margin:18px 0;padding:14px;border-left:2px solid var(--gold);background:rgba(201,162,75,.05);max-width:520px"><strong>KAIROS</strong><br><span style="color:var(--muted)">The decisive moment when everything changes. Kairos is Kolmo\'s AI engine for detecting turning points in live esports matches.</span></div>
-      <a class="btn" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14px;padding:14px 24px" href="https://discord.gg/nsefc492X">
-        <svg width="20" height="15" viewBox="0 0 71 55" fill="currentColor" aria-hidden="true"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.4.4l-1.8 3.7a54 54 0 0 0-16.2 0L25.6.4a58.4 58.4 0 0 0-14.7 4.6C1.6 18.7-.9 32.1.3 45.4a58.9 58.9 0 0 0 18 9.1 43.2 43.2 0 0 0 3.9-6.3 38 38 0 0 1-6.1-2.9l1.5-1.2a41.9 41.9 0 0 0 35.8 0l1.5 1.2a38.1 38.1 0 0 1-6.1 3 43 43 0 0 0 3.8 6.2 58.7 58.7 0 0 0 18-9.1c1.5-15.4-2.6-28.7-10.6-40.5ZM23.7 37.3c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.5 3.3 6.4 7.2c0 4-2.8 7.2-6.4 7.2Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.5 3.3 6.4 7.2c0 4-2.8 7.2-6.4 7.2Z"/></svg>
-        Join the Discord
+<div class="wrap hero-grid">
+<section aria-label="Kolmo early access" class="hero-copy">
+<div class="pill"><span class="ld"></span>EARLY ACCESS</div>
+<h1>We know when the match <span class="grad">turns.</span></h1>
+<p class="hero-sub">AI-powered real-time esports intelligence for League of Legends and CS2.</p>
+<p class="lede">
+        Kolmo is building the intelligence layer for esports.
+        <b>Kairos</b> is our AI engine for identifying decisive moments in live matches.
+        <b>Experience Kairos first on Discord. </b>Kairos Terminal launches with Kolmo.
+</p>
+<div aria-label="Kolmo features" class="feature-grid-inline"><div class="feature-item"><span class="feature-diamond">◆</span><span>Live Match Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Kairos Detection</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Regional Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Watch Together</span></div></div><a class="btn discord-cta track-discord-click" data-source="hero_cta" href="https://discord.gg/nsefc492X">
+        Experience Kairos on Discord
       </a>
-      <p class="fine" style="margin-top:14px">Not on Discord? <a href="#" id="emailToggle" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Get email updates</a></p>
-      <form class="form" id="emailForm" style="display:none;margin-top:12px" onsubmit="return joinList(event)">
-        <input type="email" id="email" placeholder="you@email.com" required aria-label="Email address">
-        <button class="btn" type="submit">Notify me</button>
-      </form>
-      <p class="msg" id="msg">◆ You're on the list. We'll email you before launch.</p>
-      <p class="msg" id="formErr" style="color:var(--live)"></p>
-      <p class="fine">Early members get the ◆ early role — and first access to the Kairos moments on Discord.</p>
-      <div class="feats">
-        <span><span class="d">◆</span> Live Match Intelligence</span>
-        <span><span class="d">◆</span> Kairos Detection</span>
-        <span><span class="d">◆</span> Regional Intelligence</span>
-      <span><span class="d">◆</span> Watch Together</span></div><div style="margin-top:18px;max-width:520px;padding:16px;border:1px solid rgba(58,214,196,.22);border-radius:10px;background:rgba(58,214,196,.04)"><strong>Built for your region. Connected to the world.</strong><p style="margin-top:6px;color:var(--muted);font-size:12.5px">Every region follows esports differently. Kolmo prioritizes the leagues and moments that matter where you are while surfacing global Kairos moments no fan should miss.</p></div>
-    </div>
-
-    <div class="term" id="termPanel" aria-label="Live Kairos terminal demo">
-      <div class="term-head">
-        <span class="term-title">◆ KAIROS TERMINAL</span>
-        <span class="term-live"><span class="ld"></span>PREVIEW</span>
-      </div>
-      <div class="term-match"><span class="ta">T1</span><span style="color:var(--dim)">bo5 · map 5</span><span class="tb">BLG</span></div>
-      <div class="term-sub">Simulated match · this is how Kairos understands a live game</div>
-      <div class="prob-chart">
-        <span class="prob-label">T1 Win %</span>
-        <span class="prob-now" id="probNow">38%</span>
-        <div class="midline"></div>
-        <svg id="probSvg" viewBox="0 0 400 150" preserveAspectRatio="none" aria-hidden="true"></svg>
-      </div>
-      <div class="feed" id="feed"></div>
-      <div class="legend"><span><i class="lg-cal"></i>Probability</span><span><i class="lg-kai"></i>Kairos moment</span></div>
-    </div>
-  </div>
+<p class="msg" id="msg">◆ You're on the list. We'll email you before launch.</p>
+<p class="msg" id="formErr"></p>
+<p class="fine">Early members get the ◆ early role—and first access to Kairos moments on Discord.</p>
+</section>
+<section aria-label="Kairos Terminal preview" class="terminal-column"><div aria-label="Kairos definition" class="kairos-hero-definition">
+<div class="kairos-hero-head"><div class="kairos-heading-inline"><span class="kairos-word">KAIROS</span><span class="kairos-greek"><em>καιρός</em> · Ancient Greek</span></div></div>
+<p><span class="kairos-definition-quote">“The exact or critical moment.”</span><div class="kairos-brand-line">Every match has a <strong>Kairos.</strong> We find it.</div></p>
+</div>
+<div aria-label="Kairos Terminal simulated preview" class="term" id="termPanel" role="region">
+<div class="term-head">
+<span class="term-title">◆ KAIROS TERMINAL</span>
+<span class="term-live"><span class="ld"></span>PREVIEW</span>
+</div>
+<div class="term-match">
+<span class="ta">T1</span>
+<span class="match-context">World Championship · Game 5</span>
+<span class="tb">BLG</span>
+</div>
+<div class="term-sub">Preview of the flagship product. Experience live Kairos moments on Discord today.</div>
+<div class="kairos-status">
+<div>
+<div class="status-kicker">KAIROS DETECTED</div>
+<div class="status-title">Momentum has shifted.</div>
+</div>
+<div class="confidence">
+<strong id="confidenceNow">94%</strong>
+<span>confidence</span>
+</div>
+</div>
+<div class="intel-grid">
+<div class="intel-card">
+<div class="metric-label">T1 Win Probability</div>
+<div class="metric-value"><span id="probBefore">41</span>% → <span id="probAfter">64</span>%</div>
+<div class="metric-shift" id="probShift">▲ +23.0%</div>
+<div class="prob-bar"><span id="probBar"></span></div>
+</div>
+<div class="intel-card">
+<div class="metric-label">Why it changed</div>
+<ul class="reason-list" id="whyList">
+<li>Baron secured</li>
+<li>Mid inhibitor opened</li>
+<li>Vision control established</li>
+</ul>
+</div>
+</div>
+<div class="signal-row">
+<div class="signal"><span>Momentum</span><strong id="momentumSignal">T1 rising</strong></div>
+<div class="signal"><span>Feed</span><strong id="regionSignal">🇺🇸 US</strong></div>
+<div class="signal"><span>Context</span><strong id="historySignal">Top 8% comeback</strong></div>
+</div>
+</div>
+</section>
+</div>
 </main>
-
-<footer>
-  <div class="wrap foot">
-    <span class="mono">Kolmo — the intelligence layer for esports.</span>
-    <div class="foot-links">
-      <a href="https://discord.gg/nsefc492X">Discord</a>
-      <a href="mailto:early@kolmo.app">Contact</a>
-    </div>
-  </div>
-  <div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">Kolmo is a real-time esports intelligence platform. We publish AI-generated match intelligence and live probability models for informational and entertainment purposes only. Kolmo does not provide betting advice or wagering services.</div>
-  <div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">© 2026 MLEM, LLC, d/b/a Kolmo App. All rights reserved.</div>
+<section aria-label="Regional intelligence" class="region-section">
+<div class="wrap">
+<div class="region-banner">
+<div class="region-kicker">REGIONAL INTELLIGENCE</div>
+<h2>Built for your region. Connected to the world.</h2>
+<p>Every region follows esports differently. Kolmo prioritizes the leagues and moments that matter where you are while surfacing global Kairos moments no fan should miss.</p>
+</div>
+</div>
+</section><footer>
+<div class="wrap foot">
+<span class="mono">Kolmo — the intelligence layer for esports. Powered by Kairos.</span>
+<div class="foot-links">
+<a class="track-discord-click" data-source="footer" href="https://discord.gg/nsefc492X">Discord</a>
+<a href="mailto:early@kolmo.app">Contact</a>
+</div>
+</div>
+<div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">Kolmo is a real-time esports intelligence platform. We publish AI-generated match intelligence and live probability models for informational and entertainment purposes only. Kolmo does not provide betting advice or wagering services.</div>
+<div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">© 2026 MLEM, LLC, d/b/a Kolmo App. All rights reserved.</div>
 </footer>
-
 <script>
-document.getElementById('emailToggle').addEventListener('click',function(e){
-  e.preventDefault();
-  var f=document.getElementById('emailForm');
-  f.style.display='flex';
-  this.parentElement.style.display='none';
-  document.getElementById('email').focus();
+document.querySelectorAll('.track-discord-click').forEach(function(link){
+  link.addEventListener('click',function(){
+    if(window.posthog){
+      posthog.capture('discord_early_access_click',{
+        source:this.getAttribute('data-source')||'unknown',
+        destination:this.getAttribute('href')
+      });
+    }
+  });
 });
-async function joinList(e){
-  e.preventDefault();
-  var form=document.getElementById('emailForm');
-  var btn=form.querySelector('button[type="submit"]');
-  var errEl=document.getElementById('formErr');
-  var email=document.getElementById('email').value.trim();
-  errEl.style.display='none';
-  var label=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
-  try{
-    var res=await fetch('https://api.web3forms.com/submit',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({
-        access_key:'46f4fa5e-3a7a-4145-81b8-c41137da6ea0',
-        subject:'New Kolmo early signup',
-        from_name:'Kolmo — coming soon',
-        email:email,
-        message:'New early-access signup: '+email
-      })
-    });
-    var data=await res.json();
-    if(data.success){
-      if(window.posthog)posthog.capture('waitlist_signup',{source:'coming_soon'});
-      document.getElementById('msg').style.display='block';
-      form.style.display='none';
-    }else{
-      throw new Error(data.message||'Submission failed');
-    }
-  }catch(err){
-    errEl.textContent='Something went wrong — please try again, or email early@kolmo.app.';
-    errEl.style.display='block';
-    btn.disabled=false; btn.textContent=label;
-  }
-  return false;
-}
 (function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var svg=document.getElementById('probSvg');
-  var probNow=document.getElementById('probNow');
-  var feedEl=document.getElementById('feed');
   var term=document.getElementById('termPanel');
-  var W=400,H=150,N=90;
-  var pts=[],p=0.38;
-  function clamp(v){return Math.max(0.06,Math.min(0.94,v));}
-  for(var i=0;i<N;i++){pts.push(p);p=clamp(p+(Math.random()-0.5)*0.03);}
-  var acts=['Pickoff','Teamfight','Baron','Tower dive','Baron steal','Ace','Dragon soul'];
-  var moments=[];
-  function draw(){
-    var d='',mk='';
-    for(var i=0;i<N;i++){
-      var x=i/(N-1)*W, y=H-pts[i]*H;
-      d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';
-    }
-    moments.forEach(function(m){
-      if(m.i<0)return;
-      var x=m.i/(N-1)*W, y=H-m.p*H;
-      mk+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="#3ee0a6"/>';
-    });
-    svg.innerHTML='<path d="'+d+'" fill="none" stroke="#3aa0ff" stroke-width="2"/>'+mk;
-    probNow.textContent=Math.round(pts[N-1]*100)+'%';
+  if(!term)return;
+  var scenarios=[
+    {before:41,after:64,confidence:94,reasons:['Baron secured','Mid inhibitor opened','Vision control established'],momentum:'T1 rising',region:'🇺🇸 US',history:'Top 8% comeback'},
+    {before:68,after:47,confidence:91,reasons:['BLG wins teamfight','Dragon soul denied','Gold lead cut in half'],momentum:'BLG surging',region:'🇸🇪 Sweden',history:'Finals-level swing'},
+    {before:36,after:58,confidence:96,reasons:['Three-player pickoff','Elder setup secured','Side-lane pressure released'],momentum:'T1 reversal',region:'🇩🇰 Denmark',history:'Top 5% turnaround'},
+    {before:55,after:73,confidence:92,reasons:['Objective secured','Map control established','Economy advantage widened'],momentum:'G2 surging',region:'🇩🇪 Germany',history:'Playoff swing'},
+    {before:48,after:67,confidence:95,reasons:['Ace won','Baron secured','Vision denied'],momentum:'Gen.G rising',region:'🇰🇷 Korea',history:'Top 10% swing'},
+    {before:39,after:61,confidence:93,reasons:['Triple kill','Dragon soul secured','Gold lead flipped'],momentum:'BLG reversal',region:'🇨🇳 China',history:'Historic comeback'},
+    {before:46,after:69,confidence:90,reasons:['Opening picks','Site conversion','Economy broken'],momentum:'Astralis rising',region:'🌍 Global',history:'Major momentum shift'}
+  ];
+  var i=0;
+  function render(s){
+    document.getElementById('probBefore').textContent=s.before;
+    document.getElementById('probAfter').textContent=s.after;
+    document.getElementById('confidenceNow').textContent=s.confidence+'%';
+    var delta=s.after-s.before;
+    document.getElementById('probShift').textContent=(delta>=0?'▲ +':'▼ ')+delta.toFixed(1)+'%';
+    document.getElementById('probBar').style.width=s.after+'%';
+    document.getElementById('momentumSignal').textContent=s.momentum;
+    document.getElementById('regionSignal').textContent=s.region;
+    document.getElementById('historySignal').textContent=s.history;
+    document.getElementById('whyList').innerHTML=s.reasons.map(function(r){return '<li>'+r+'</li>';}).join('');
   }
-  function addFeed(text,val,kai){
-    var row=document.createElement('div');
-    row.className='feed-row'+(kai?' kai':'');
-    row.innerHTML='<span>'+(kai?'⚡ KAIROS · ':'')+text+'</span><span class="fv">'+val+'</span>';
-    feedEl.insertBefore(row,feedEl.firstChild);
-    while(feedEl.children.length>3)feedEl.removeChild(feedEl.lastChild);
+  render(scenarios[0]);
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setInterval(function(){i=(i+1)%scenarios.length;render(scenarios[i]);},3200);
   }
-  addFeed('Teamfight · BLG','-4.2%',false);
-  addFeed('Model sync · map 5 start','50.0%',false);
-  function tick(){
-    var last=pts[N-1];
-    var step=(Math.random()-0.5)*0.035;
-    var kai=Math.random()<0.06;
-    if(kai)step+=(last<0.5?1:-1)*(0.14+Math.random()*0.1);
-    var next=clamp(last+step);
-    pts.push(next);pts.shift();
-    moments.forEach(function(m){m.i--;});
-    moments=moments.filter(function(m){return m.i>=0;});
-    if(kai){
-      moments.push({i:N-1,p:next});
-      var up=next>last;
-      var d=(next-last)*100;
-      addFeed(acts[Math.floor(Math.random()*acts.length)]+' · '+(up?'T1':'BLG'),(d>0?'+':'')+d.toFixed(1)+'%',true);
-      if(!reduce){term.classList.remove('flash');void term.offsetWidth;term.classList.add('flash');}
-    }
-    draw();
-  }
-  draw();
-  if(!reduce)setInterval(tick,900);
-  else{for(var j=0;j<10;j++)tick();draw();}
 })();
 </script>
 </body>
