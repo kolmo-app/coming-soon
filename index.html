@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -581,29 +580,42 @@ main{flex:1;display:block;padding:20px 0 36px}
 <div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">© 2026 MLEM, LLC, d/b/a Kolmo App. All rights reserved.</div>
 </footer>
 <script>
-document.querySelectorAll('.track-discord-click').forEach(function(link){
-  link.addEventListener('click',function(event){
-    var destination=this.getAttribute('href');
-    var source=this.getAttribute('data-source')||'unknown';
+(function(){
+  var links=document.querySelectorAll('.track-discord-click');
 
-    if(!destination)return;
+  links.forEach(function(link){
+    link.addEventListener('click',function(event){
+      var destination=link.getAttribute('href');
+      var source=link.getAttribute('data-source')||'unknown';
 
-    if(window.posthog){
+      if(!destination || !window.posthog)return;
+
       event.preventDefault();
-      this.classList.add('is-sending');
+      link.classList.add('is-sending');
 
-      posthog.capture('discord_early_access_click',{
-        source:source,
-        destination:destination
-      });
+      posthog.capture(
+        'discord_early_access_click',
+        {
+          source:source,
+          destination:destination,
+          page_url:window.location.href
+        },
+        {
+          transport:'sendBeacon',
+          send_instantly:true
+        }
+      );
 
-      // Give PostHog time to queue and transmit the event before leaving the page.
+      // sendBeacon is designed for navigation/unload. A short delay lets
+      // the SDK enqueue the request without making the click feel slow.
       window.setTimeout(function(){
         window.location.assign(destination);
-      },500);
-    }
+      },100);
+    });
   });
-});
+})();
+
+
 (function(){
   var term=document.getElementById('termPanel');
   if(!term)return;
