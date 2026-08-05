@@ -1,13 +1,20 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence</title>
-<meta content="Kolmo is building the intelligence layer for esports. Powered by Kairos, our AI engine identifies decisive moments in live League of Legends and Counter-Strike 2 matches. Experience Kairos on Discord before Kairos Terminal launches." name="description"/>
+<title>Kolmo | Kairos Terminal – Real-Time Esports Intelligence</title>
+<meta content="Kolmo is building the AI intelligence layer for esports. Powered by Kairos. Powered by Kairos, our AI engine identifies decisive moments in live League of Legends and Counter-Strike 2 matches. before Kairos Terminal launches Join the waitlist for early access to Kairos Terminal." name="description"/>
 <meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" property="og:title"/>
-<meta content="AI-powered real-time esports intelligence. Experience Kairos on Discord before Kairos Terminal launches." property="og:description"/>
+<meta content="AI-powered real-time esports intelligence. before Kairos Terminal launches Join the waitlist for early access to Kairos Terminal." property="og:description"/>
 <meta content="https://kolmo.app/og-image.png" property="og:image"/>
 <meta content="website" property="og:type"/>
 <meta content="https://kolmo.app/" property="og:url"/>
@@ -104,7 +111,6 @@ main{flex:1;display:block;padding:20px 0 36px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(430px,1.08fr);gap:40px;align-items:center}
 .hero-copy,.terminal-column{min-width:0}
 .hero-sub{font-size:17px;font-weight:600;color:var(--muted);margin:-8px 0 16px}
-.discord-cta{display:inline-flex;text-decoration:none;font-size:14px;padding:14px 22px}
 #emailToggle{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 #formErr{color:var(--live)}
 
@@ -422,9 +428,55 @@ main{flex:1;display:block;padding:20px 0 36px}
 }
 
 
-.track-discord-click.is-sending{
-  pointer-events:none;
-  opacity:.78;
+
+
+/* Email waitlist */
+.waitlist-form{
+  display:flex;
+  gap:8px;
+  max-width:440px;
+}
+.waitlist-form input{
+  flex:1;
+  min-width:0;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:var(--text);
+  font-size:14px;
+  font-family:'Archivo',sans-serif;
+  padding:13px 14px;
+  outline:none;
+}
+.waitlist-form input:focus{
+  border-color:var(--accent);
+}
+.waitlist-button:disabled{
+  cursor:wait;
+  opacity:.72;
+}
+.waitlist-message{
+  min-height:20px;
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+.waitlist-message.success{color:var(--kairos)}
+.waitlist-message.error{color:var(--live)}
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+@media(max-width:520px){
+  .waitlist-form{flex-direction:column}
+  .waitlist-button{width:100%}
 }
 </style>
 <script>
@@ -435,7 +487,7 @@ main{flex:1;display:block;padding:20px 0 36px}
         person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
     })
 </script>
-<link href="https://kolmo.app/" rel="canonical"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" name="twitter:title"/><meta content="AI-powered real-time esports intelligence. Experience Kairos on Discord before Kairos Terminal launches." name="twitter:description"/><meta content="https://kolmo.app/og-image.png" name="twitter:image"/><script type="application/ld+json">{
+<link href="https://kolmo.app/" rel="canonical"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" name="twitter:title"/><meta content="AI-powered real-time esports intelligence. before Kairos Terminal launches Join the waitlist for early access to Kairos Terminal." name="twitter:description"/><meta content="https://kolmo.app/og-image.png" name="twitter:image"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -449,10 +501,7 @@ main{flex:1;display:block;padding:20px 0 36px}
         "url": "https://kolmo.app/og-image.png",
         "width": 1200,
         "height": 630
-      },
-      "sameAs": [
-        "https://discord.gg/nsefc492X"
-      ]
+      }
     },
     {
       "@type": "WebSite",
@@ -471,7 +520,7 @@ main{flex:1;display:block;padding:20px 0 36px}
       "applicationCategory": "SportsApplication",
       "operatingSystem": "Web",
       "url": "https://kolmo.app/",
-      "description": "Kairos Terminal is Kolmo's flagship real-time esports intelligence product, powered by the Kairos AI engine. It identifies decisive moments, momentum shifts, and live win-probability changes in esports matches.",
+      "description": "Kairos Terminal is Kolmo's flagship real-time esports intelligence product, powered by the Kairos AI engine. It identifies decisive moments, momentum shifts, and live win-probability changes in League of Legends and Counter-Strike 2 matches.",
       "creator": {
         "@id": "https://kolmo.app/#organization"
       },
@@ -499,16 +548,18 @@ main{flex:1;display:block;padding:20px 0 36px}
 <h1>We know when the match <span class="grad">turns.</span></h1>
 <p class="hero-sub">AI-powered real-time esports intelligence for League of Legends and CS2.</p>
 <p class="lede">
-        Kolmo is building the intelligence layer for esports.
+        Kolmo is building the AI intelligence layer for esports. Powered by Kairos.
         <b>Kairos</b> is our AI engine for identifying decisive moments in live matches.
-        <b>Experience Kairos first on Discord. </b>Kairos Terminal launches with Kolmo.
+        <b>Join the waitlist for early access. Kairos Terminal launches with Kolmo.</b>
 </p>
-<div aria-label="Kolmo features" class="feature-grid-inline"><div class="feature-item"><span class="feature-diamond">◆</span><span>Live Match Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Kairos Detection</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Regional Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Watch Together</span></div></div><a class="btn discord-cta track-discord-click" data-source="hero_cta" href="https://discord.gg/nsefc492X">
-        Experience Kairos on Discord
-      </a>
-<p class="msg" id="msg">◆ You're on the list. We'll email you before launch.</p>
-<p class="msg" id="formErr"></p>
-<p class="fine">Early members get the ◆ early role—and first access to Kairos moments on Discord.</p>
+<div aria-label="Kolmo features" class="feature-grid-inline"><div class="feature-item"><span class="feature-diamond">◆</span><span>Live Match Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Kairos Detection</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Regional Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Tournament Hub & Community</span></div></div>
+<form class="waitlist-form" id="waitlistForm">
+<label class="sr-only" for="waitlistEmail">Email address</label>
+<input aria-label="Email address" autocomplete="email" id="waitlistEmail" name="email" placeholder="Enter your email" required="" type="email"/>
+<button class="btn waitlist-button" type="submit">Join Waitlist</button>
+</form>
+<p aria-live="polite" class="waitlist-message" id="waitlistMessage"></p>
+<p class="fine">Early access members will be the first to experience Kairos Terminal, preview new features, and help shape the future of Kolmo. first access to Kairos moments and Kairos Terminal updates.</p>
 </section>
 <section aria-label="Kairos Terminal preview" class="terminal-column"><div aria-label="Kairos definition" class="kairos-hero-definition">
 <div class="kairos-hero-head"><div class="kairos-heading-inline"><span class="kairos-word">KAIROS</span><span class="kairos-greek"><em>καιρός</em> · Ancient Greek</span></div></div>
@@ -524,7 +575,7 @@ main{flex:1;display:block;padding:20px 0 36px}
 <span class="match-context">World Championship · Game 5</span>
 <span class="tb">BLG</span>
 </div>
-<div class="term-sub">Preview of the flagship product. Experience live Kairos moments on Discord today.</div>
+<div class="term-sub">Preview of Kairos Terminal, Kolmo's flagship real-time esports intelligence product.</div>
 <div class="kairos-status">
 <div>
 <div class="status-kicker">KAIROS DETECTED</div>
@@ -565,14 +616,13 @@ main{flex:1;display:block;padding:20px 0 36px}
 <div class="region-banner">
 <div class="region-kicker">REGIONAL INTELLIGENCE</div>
 <h2>Built for your region. Connected to the world.</h2>
-<p>Every region follows esports differently. Kolmo prioritizes the leagues and moments that matter where you are while surfacing global Kairos moments no fan should miss.</p>
+<p>Every region experiences esports differently. Kolmo prioritizes the leagues and Kairos moments most relevant to you while surfacing globally significant moments no fan should miss.</p>
 </div>
 </div>
 </section><footer>
 <div class="wrap foot">
 <span class="mono">Kolmo — the intelligence layer for esports. Powered by Kairos.</span>
 <div class="foot-links">
-<a class="track-discord-click" data-source="footer" href="https://discord.gg/nsefc492X">Discord</a>
 <a href="mailto:early@kolmo.app">Contact</a>
 </div>
 </div>
@@ -581,39 +631,64 @@ main{flex:1;display:block;padding:20px 0 36px}
 </footer>
 <script>
 (function(){
-  var links=document.querySelectorAll('.track-discord-click');
+  var form=document.getElementById('waitlistForm');
+  var emailInput=document.getElementById('waitlistEmail');
+  var message=document.getElementById('waitlistMessage');
 
-  links.forEach(function(link){
-    link.addEventListener('click',function(event){
-      var destination=link.getAttribute('href');
-      var source=link.getAttribute('data-source')||'unknown';
+  if(!form || !emailInput || !message)return;
 
-      if(!destination || !window.posthog)return;
+  form.addEventListener('submit',async function(event){
+    event.preventDefault();
 
-      event.preventDefault();
-      link.classList.add('is-sending');
+    var button=form.querySelector('button[type="submit"]');
+    var email=emailInput.value.trim();
+    var originalLabel=button.textContent;
 
-      posthog.capture(
-        'discord_early_access_click',
-        {
-          source:source,
-          destination:destination,
-          page_url:window.location.href
+    message.className='waitlist-message';
+    message.textContent='';
+    button.disabled=true;
+    button.textContent='Joining…';
+
+    try{
+      var response=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'Accept':'application/json'
         },
-        {
-          transport:'sendBeacon',
-          send_instantly:true
-        }
-      );
+        body:JSON.stringify({
+          access_key:'46f4fa5e-3a7a-4145-81b8-c41137da6ea0',
+          subject:'New Kolmo waitlist signup',
+          from_name:'Kolmo Early Access',
+          email:email,
+          message:'New Kolmo early-access signup: '+email
+        })
+      });
 
-      // sendBeacon is designed for navigation/unload. A short delay lets
-      // the SDK enqueue the request without making the click feel slow.
-      window.setTimeout(function(){
-        window.location.assign(destination);
-      },100);
-    });
+      var data=await response.json();
+      if(!data.success){
+        throw new Error(data.message||'Submission failed');
+      }
+
+      if(window.posthog){
+        posthog.capture('waitlist_signup',{
+          source:'homepage'
+        });
+      }
+
+      message.className='waitlist-message success';
+      message.textContent="◆ You're on the waitlist. We'll email you before launch.";
+      form.reset();
+      form.style.display='none';
+    }catch(error){
+      message.className='waitlist-message error';
+      message.textContent='Something went wrong — please try again, or email early@kolmo.app.';
+      button.disabled=false;
+      button.textContent=originalLabel;
+    }
   });
 })();
+
 
 
 (function(){
@@ -625,8 +700,7 @@ main{flex:1;display:block;padding:20px 0 36px}
     {before:36,after:58,confidence:96,reasons:['Three-player pickoff','Elder setup secured','Side-lane pressure released'],momentum:'T1 reversal',region:'🇩🇰 Denmark',history:'Top 5% turnaround'},
     {before:55,after:73,confidence:92,reasons:['Objective secured','Map control established','Economy advantage widened'],momentum:'G2 surging',region:'🇩🇪 Germany',history:'Playoff swing'},
     {before:48,after:67,confidence:95,reasons:['Ace won','Baron secured','Vision denied'],momentum:'Gen.G rising',region:'🇰🇷 Korea',history:'Top 10% swing'},
-    {before:39,after:61,confidence:93,reasons:['Triple kill','Dragon soul secured','Gold lead flipped'],momentum:'BLG reversal',region:'🇨🇳 China',history:'Historic comeback'},
-    {before:46,after:69,confidence:90,reasons:['Opening picks','Site conversion','Economy broken'],momentum:'Astralis rising',region:'🌍 Global',history:'Major momentum shift'}
+    {before:46,after:69,confidence:90,reasons:['Gold lead flipped','Triple kill','Dragon soul secured'],momentum:'GEN rising',region:'🌍 Global',history:'Major momentum shift'}
   ];
   var i=0;
   function render(s){
