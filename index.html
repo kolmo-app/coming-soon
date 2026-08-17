@@ -104,6 +104,9 @@ figcaption{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.5}
 .obs-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .obs-m .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
 .obs-m .v{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600}
+.layer-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;border:1px solid var(--line);border-radius:5px;padding:1px 5px;margin-left:6px;vertical-align:1px}
+.layer-tag.lo{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.layer-tag.li{color:var(--blue);border-color:color-mix(in srgb,var(--blue) 45%,transparent)}
 @media(max-width:520px){.obs-meta{grid-template-columns:1fr 1fr}}
 
 .rule{border:none;border-top:1px solid var(--line);margin:0}
@@ -267,11 +270,11 @@ footer{border-top:1px solid var(--line);margin-top:auto;padding:26px 0 40px;colo
           <span class="fig-n">Observation record</span>
         </div>
         <div class="obs-meta">
-          <div class="obs-m"><div class="k">First seen</div><div class="v">27:40</div></div>
-          <div class="obs-m"><div class="k">Impact</div><div class="v">Exceptional</div></div>
-          <div class="obs-m"><div class="k">Rarity</div><div class="v">Top 8%</div></div>
+          <div class="obs-m"><div class="k">First seen<span class="layer-tag lo">O · OBSERVED</span></div><div class="v">27:40</div></div>
+          <div class="obs-m"><div class="k">Impact<span class="layer-tag li">I · INFERRED</span></div><div class="v">Exceptional</div></div>
+          <div class="obs-m"><div class="k">Rarity<span class="layer-tag li">I · INFERRED</span></div><div class="v">Top 8%</div></div>
         </div>
-        <div class="source">ILLUSTRATIVE EXAMPLE — every real detection is logged with lead time and post-match verification.</div>
+        <div class="source">ILLUSTRATIVE EXAMPLE — every real detection is logged with lead time, its falsifier, and post-match verification. Observed facts and inferences are always labeled apart.</div>
       </div>
     </div>
   </section>

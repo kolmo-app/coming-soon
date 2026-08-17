@@ -1,0 +1,69 @@
+{
+  "_comment": "Worked example: the illustrative 27:40 Kairos detection from the landing page, expressed as a KVU chain per 01-evidence-standard.md. All values are illustrative.",
+  "kvus": [
+    {
+      "kvu_id": "KVU-2026-0712-000141",
+      "object_key": "grid:match_8842107:t1672:v3",
+      "claim_layer": "O",
+      "proposition": "Baron secured by GEN at game-time 27:31; mid inhibitor opened 27:38; ward coverage in enemy jungle rose from 2 to 6 within 40s.",
+      "evidence_class": "A",
+      "status": "●",
+      "source_and_provenance": "GRID official feed, raw frames archived at s3://kolmo-raw/2026-07-12/8842107/",
+      "jurisdiction": null,
+      "observed_at": { "wall_clock": "2026-07-12T09:41:22Z", "game_clock": "27:40", "feed_latency_ms": 820 },
+      "validity_window": "match 8842107 only",
+      "confidence_or_uncertainty": "direct field, no estimation",
+      "trust_vector": { "reliability": 0.998, "independence": 1.0, "freshness": "PASS", "integrity": "PASS" },
+      "counterevidence": null,
+      "falsifier": "GRID post-match correction of event timeline",
+      "authority": "sensor-pipeline (automated)",
+      "closure_condition": "closed at match end",
+      "next_gate": null,
+      "model_version": null,
+      "policy_version": "charter-v0.2"
+    },
+    {
+      "kvu_id": "KVU-2026-0712-000142",
+      "object_key": "grid:match_8842107:t1672:v3",
+      "claim_layer": "I",
+      "proposition": "Structural shift in match state: control of tempo moved to GEN. Estimated P(GEN win) moved 0.36 -> 0.58.",
+      "evidence_class": "A",
+      "status": "◐",
+      "source_and_provenance": "kairos-engine inference over KVU-2026-0712-000141 and prior state window 20:00-27:40",
+      "observed_at": { "wall_clock": "2026-07-12T09:41:23Z", "game_clock": "27:40" },
+      "validity_window": "until next structural event or match end",
+      "confidence_or_uncertainty": "calibrated p=0.58 (calibration set v12, Brier 0.19)",
+      "trust_vector": { "reliability": 0.91, "independence": 0.6, "freshness": "PASS", "integrity": "PASS" },
+      "counterevidence": "T1 retains elder-side scaling; comparable states reverted in 18% of historical windows",
+      "falsifier": "state reverts (win prob back within ±3pt of pre-event baseline) inside 6:00 of game clock",
+      "authority": "kairos-engine v2.1",
+      "closure_condition": "post-match verification pass",
+      "next_gate": "confirmation-check",
+      "model_version": "kairos-v2.1",
+      "policy_version": "charter-v0.2"
+    },
+    {
+      "kvu_id": "KVU-2026-0712-000143",
+      "object_key": "grid:match_8842107:t1672:v3",
+      "claim_layer": "A",
+      "proposition": "Emit KAIROS DETECTED alert (impact: exceptional, rarity: top 8% of historical windows, population: LCK/LEC 2024-2026, n=3,412).",
+      "evidence_class": "A",
+      "status": "●",
+      "source_and_provenance": "cp-gate evaluation: changepoint_score 4.1 > 3.5 (registered), persistence 45s >= P=30s, breadth 3/3 signals, false_alarm_budget 2/5 remaining, ood PASS, drift PASS, integrity PASS, decisive_falsifier NONE",
+      "observed_at": { "wall_clock": "2026-07-12T09:41:24Z", "game_clock": "27:40" },
+      "confidence_or_uncertainty": "uncertainty of KVU-000142 recorded; no veto per charter art.1(3), transition-policy 1(2)",
+      "counterevidence": "inherited from KVU-000142",
+      "falsifier": "reclassified as false signal if KVU-000142 falsifier fires",
+      "authority": "cp-gate (automated) under authority: elli (norm N-v: false positives costlier than false negatives, registered 2026-06-30)",
+      "closure_condition": "confirmed or reclassified at post-match verification",
+      "next_gate": "G4 canary population only (current deployment stage)",
+      "model_version": "kairos-v2.1",
+      "policy_version": "charter-v0.2",
+      "outcome": {
+        "confirmed_at": { "wall_clock": "2026-07-12T09:42:11Z", "game_clock": "28:27" },
+        "lead_time_s": 47,
+        "final_status": "CONFIRMED"
+      }
+    }
+  ]
+}
