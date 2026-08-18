@@ -1,483 +1,153 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
-<!DOCTYPE html>
-
-<!DOCTYPE html>
-
-<!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kolmo | Kairos Terminal – Real-Time Esports Intelligence</title>
-<meta content="Kolmo is building the AI intelligence layer for esports. Powered by Kairos. Powered by Kairos, our AI engine identifies decisive moments in live League of Legends and Counter-Strike 2 matches. before Kairos Terminal launches Join the waitlist for early access to Kairos Terminal." name="description"/>
-<meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" property="og:title"/>
-<meta content="AI-powered real-time esports intelligence. before Kairos Terminal launches Join the waitlist for early access to Kairos Terminal." property="og:description"/>
+<title>Kolmo — Esports Intelligence</title>
+<meta content="Kolmo is a research lab for live esports. We don't predict the future — we detect the moment it changes. Kairos, our detection engine, flags structural shifts in live League of Legends and CS2 matches. Join the First Light waitlist." name="description"/>
+<meta content="Kolmo — Esports Intelligence" property="og:title"/>
+<meta content="We don't predict the future. We detect the moment it changes. Join the First Light waitlist for early access." property="og:description"/>
 <meta content="https://kolmo.app/og-image.png" property="og:image"/>
 <meta content="website" property="og:type"/>
 <meta content="https://kolmo.app/" property="og:url"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M14 8 L14 52 L58 52' stroke='%233ad6c4' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23,39 L28,44 L23,49 L18,44 Z' fill='%233ad6c4'/%3E%3Cpath d='M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z' fill='%233ad6c4'/%3E%3Cpath d='M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z' fill='%233ee0a6'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<meta content="Kolmo — Esports Intelligence" name="twitter:title"/>
+<meta content="We don't predict the future. We detect the moment it changes. Join the First Light waitlist for early access." name="twitter:description"/>
+<meta content="https://kolmo.app/og-image.png" name="twitter:image"/>
+<link href="https://kolmo.app/" rel="canonical"/>
+<meta content="index,follow,max-image-preview:large" name="robots"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%2333b3a2' stroke-width='2.2'/%3E%3Ccircle cx='16' cy='16' r='5.6' fill='none' stroke='%2333b3a2' stroke-width='2.2'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="favicon.ico" rel="icon" sizes="any"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Outfit:wght@500&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg:#0f1822;--surface:#12151c;--surface-2:#171b24;--line:#222733;--line-soft:#1a1e27;
-  --text:#f4f6fa;--muted:#a2adbe;--dim:#7b869a;--live:#ff4655;--accent:#3ad6c4;--gold:#c9a24b;
-  --kairos:#3ee0a6;
+  --bg:#0b0d11;--surface:#12151b;--surface-2:#181c24;--line:#242a34;--line-soft:#1b2029;
+  --text:#eef1f6;--muted:#8b93a3;--dim:#5a6273;--accent:#33b3a2;--gold:#c9a24b;
+  --blue:#4f83cc;--up:#2bbd8e;--down:#e5484d;--band:rgba(51,179,162,.16);--grid:rgba(255,255,255,.022);
+}
+html[data-theme="light"]{
+  --bg:#f6f7f9;--surface:#ffffff;--surface-2:#eef1f5;--line:#e0e4ea;--line-soft:#eef1f5;
+  --text:#151a22;--muted:#5c6675;--dim:#909aa8;--accent:#158577;--gold:#9a7420;
+  --blue:#3a6bb0;--up:#12946b;--down:#d23a3f;--band:rgba(21,133,119,.14);--grid:rgba(20,30,50,.045);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg)}
-body{background:transparent;color:var(--text);font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;position:relative}
-body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 16% 20%,rgba(58,160,255,.14),transparent 40%),radial-gradient(circle at 84% 28%,rgba(201,162,75,.10),transparent 42%),radial-gradient(circle at 50% 90%,rgba(58,214,196,.12),transparent 44%);filter:blur(34px);animation:aurora 22s ease-in-out infinite alternate}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:38px 38px}
-@keyframes aurora{from{transform:translateY(-2%)}to{transform:translateY(2%)}}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px;width:100%}
+body{background:transparent;color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh;display:flex;flex-direction:column}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+h1,h2,h3,.serif{font-family:'IBM Plex Serif',Georgia,serif;letter-spacing:-.01em;line-height:1.14}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;width:100%}
 
-header{padding:22px 0}
-.logo{font-family:'Outfit',sans-serif;font-weight:500;font-size:22px;letter-spacing:0;white-space:nowrap;display:flex;align-items:center;gap:9px;color:var(--text)}
-.logo .kmark{height:28px;width:28px;flex:none}
-
-main{flex:1;display:flex;align-items:center;padding:36px 0 56px}
-.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-@media(max-width:880px){.grid{grid-template-columns:1fr}}
-.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(58,214,196,.08);border:1px solid rgba(58,214,196,.35);color:var(--accent);font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.8px;padding:6px 14px;border-radius:99px;margin-bottom:20px}
-.pill .ld{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-family:'Chakra Petch',sans-serif;font-size:clamp(30px,4.8vw,48px);font-weight:700;line-height:1.12;letter-spacing:-.5px;margin-bottom:18px}
-.grad{background:linear-gradient(100deg,var(--accent),#7bd7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lede{font-size:16.5px;color:var(--muted);max-width:520px;margin-bottom:26px;line-height:1.65}
-.lede b{color:var(--text);font-weight:600}
-.form{display:flex;gap:8px;max-width:440px}
-.form input{flex:1;min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;color:var(--text);font-size:14px;font-family:'Archivo',sans-serif;padding:13px 14px;outline:none;transition:border-color .15s}
-.form input:focus{border-color:var(--accent)}
-.btn{background:var(--accent);color:#06231f;border:none;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;padding:13px 20px;border-radius:9px;cursor:pointer;white-space:nowrap;transition:.14s}
-.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.msg{display:none;font-family:'Archivo',sans-serif;font-size:13px;color:var(--kairos);margin-top:12px}
-.fine{font-size:12px;color:var(--dim);margin-top:12px}
-@media(max-width:520px){.form{flex-direction:column}}
-.feats{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:12.5px;color:var(--muted)}
-.feats span{display:inline-flex;align-items:center;gap:7px}
-.feats .d{color:var(--gold);font-family:'Archivo',sans-serif}
-
-/* Terminal */
-.term{background:var(--surface);border:1px solid rgba(201,162,75,.4);clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);padding:22px;filter:drop-shadow(0 0 34px rgba(201,162,75,.14))}
-.term-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.term-title{font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:1.6px;color:var(--gold)}
-.term-live{display:inline-flex;align-items:center;gap:6px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:var(--live)}
-.term-live .ld{width:7px;height:7px;border-radius:50%;background:var(--live);animation:pulse 1.2s infinite}
-.term-match{display:flex;align-items:center;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:13px;margin-bottom:6px}
-.term-match .ta{color:var(--live)}.term-match .tb{color:#7bd7ff}
-.term-sub{font-size:11.5px;color:var(--dim);margin-bottom:14px}
-.prob-chart{position:relative;height:150px;border:1px solid var(--line-soft);border-radius:8px;background:var(--surface-2);overflow:hidden;margin-bottom:12px}
-.prob-chart svg{display:block;width:100%;height:100%}
-.midline{position:absolute;left:0;right:0;top:50%;border-top:1px dashed #2a3040}
-.prob-label{position:absolute;top:8px;left:10px;font-family:'Archivo',sans-serif;font-size:11px;color:var(--muted)}
-.prob-now{position:absolute;top:8px;right:10px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:var(--kairos)}
-.term.flash{animation:kflash 1.1s ease-out}
-@keyframes kflash{0%{filter:drop-shadow(0 0 34px rgba(62,224,166,.55))}100%{filter:drop-shadow(0 0 34px rgba(201,162,75,.14))}}
-.feed{display:flex;flex-direction:column;gap:7px;max-height:118px;overflow:hidden}
-.feed-row{display:flex;align-items:center;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:11.5px;color:var(--muted);border:1px solid var(--line-soft);border-radius:7px;padding:7px 10px;background:rgba(255,255,255,.015)}
-.feed-row.kai{border-color:rgba(62,224,166,.45);color:var(--text)}
-.feed-row.kai .fv{color:var(--kairos)}
-.feed-row .fv{font-weight:700}
-.legend{display:flex;gap:16px;margin-top:12px;font-size:11px;color:var(--dim)}
-.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
-.lg-cal{background:#3aa0ff}.lg-kai{background:var(--kairos)}
-
-footer{padding:22px 0;font-size:12.5px;color:var(--dim);border-top:1px solid var(--line)}
-.foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.foot a{color:inherit;text-decoration:none}
-.foot a:hover{color:var(--text)}
-.foot-links{display:flex;gap:20px}
-.mono{font-family:'Archivo',sans-serif}
-
-@media(prefers-reduced-motion:reduce){
-  body::before{animation:none}
-  .pill .ld,.term-live .ld{animation:none}
-  .term.flash{animation:none}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:60px}
+.logo{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:20px;display:flex;align-items:center;gap:8px}
+.logo svg{width:19px;height:19px}
+.logo .ring{fill:none;stroke:var(--accent);stroke-width:2.2}
+.brand-label{font-size:14px;color:var(--muted);padding-left:14px;margin-left:4px;border-left:1px solid var(--line);white-space:nowrap}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.status-pill{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:5px 11px;white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--up);box-shadow:0 0 0 3px color-mix(in srgb,var(--up) 25%,transparent);animation:pulse 2.2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.ttog{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);cursor:pointer;font-size:15px}
+.ttog:hover{color:var(--text);border-color:var(--accent)}
+@media(max-width:640px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .nav{gap:10px}
+  .brand-label,.status-pill{display:none}
 }
 
-/* Stable responsive redesign */
-header{padding:16px 0}
-main{flex:1;display:block;padding:20px 0 36px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(430px,1.08fr);gap:40px;align-items:center}
-.hero-copy,.terminal-column{min-width:0}
-.hero-sub{font-size:17px;font-weight:600;color:var(--muted);margin:-8px 0 16px}
-#emailToggle{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
-#formErr{color:var(--live)}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.kicker.gold{color:var(--gold)}
 
-.term{padding:19px}
-.match-context{color:var(--dim);font-size:11px}
-.kairos-status{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px;border:1px solid rgba(62,224,166,.4);border-radius:9px;background:rgba(62,224,166,.055);margin-bottom:10px}
-.status-kicker{font-size:10px;letter-spacing:1.4px;color:var(--kairos);font-weight:700}
-.status-title{font-family:'Chakra Petch',sans-serif;font-size:19px;font-weight:700}
-.confidence{text-align:right}.confidence strong{display:block;font-size:21px;color:var(--kairos);line-height:1}.confidence span{font-size:9px;color:var(--dim);text-transform:uppercase}
-.intel-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:10px}
-.intel-card{border:1px solid var(--line-soft);border-radius:8px;background:var(--surface-2);padding:11px}
-.metric-label{font-size:9.5px;letter-spacing:1px;color:var(--dim);text-transform:uppercase}
-.metric-value{font-family:'Chakra Petch',sans-serif;font-size:23px;font-weight:700;margin-top:3px}
-.metric-shift{font-size:11px;font-weight:700;color:var(--kairos)}
-.prob-bar{height:7px;border-radius:99px;background:#252b37;overflow:hidden;margin-top:8px}
-.prob-bar span{display:block;height:100%;width:64%;background:linear-gradient(90deg,#3aa0ff,var(--kairos))}
-.reason-list{list-style:none;display:grid;gap:5px;margin-top:7px;font-size:11px;color:var(--muted)}
-.reason-list li::before{content:"◆";color:var(--gold);font-size:8px;margin-right:6px}
-.signal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
-.signal{border:1px solid var(--line-soft);border-radius:8px;padding:8px;background:rgba(255,255,255,.015)}
-.signal span{display:block;font-size:9px;color:var(--dim);text-transform:uppercase;margin-bottom:2px}
-.signal strong{font-size:10.5px}
-.alert-preview{padding:10px;border:1px solid rgba(58,214,196,.25);border-radius:8px;background:rgba(58,214,196,.035)}
-.alert-preview strong{display:block;font-size:11.5px}.alert-preview span{font-size:10px;color:var(--muted)}
+.lead{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;padding:48px 0 38px;align-items:start}
+.lead h1{font-size:40px;font-weight:600;margin:14px 0 16px}
+.lead h1 em{font-style:italic;color:var(--accent)}
+.lead .dek{font-size:17px;color:var(--muted);line-height:1.55;margin-bottom:20px;max-width:33em}
+.lead .dek b{color:var(--text);font-weight:600}
+.byline{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--dim);font-family:'IBM Plex Mono',monospace;margin-bottom:22px}
+.byline b{color:var(--text);font-weight:500}
 
-.story-section{padding:42px 0 52px;border-top:1px solid var(--line);background:rgba(8,12,18,.18)}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
-.kairos-note{padding:18px;border:1px solid rgba(201,162,75,.28);border-radius:12px;background:rgba(201,162,75,.04)}
-.definition-head{display:flex;justify-content:space-between;margin-bottom:9px}
-.definition-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--gold)}
-.definition-type{font-size:10px;color:var(--dim)}
-.definition-title{font-family:'Chakra Petch',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
-.definition-title small{font-family:'Archivo',sans-serif;font-size:12px;font-weight:500;color:var(--dim)}
-.definition-copy{display:grid;gap:7px;color:var(--muted);font-size:12.5px}
-.definition-copy strong{color:var(--text)}.brand-line{font-family:'Chakra Petch',sans-serif;font-size:18px;color:var(--text)}
-.definition-flow{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
-.definition-flow span{padding:5px 8px;border:1px solid var(--line-soft);border-radius:99px;font-size:10px;color:var(--muted)}
-.definition-flow b{color:var(--text)}
-.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.feat-card{min-height:58px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.018);font-size:13px;font-weight:600;display:flex;align-items:center;color:var(--text)}
-.region-card{margin-top:10px;padding:15px;border:1px solid rgba(58,214,196,.22);border-radius:10px;background:rgba(58,214,196,.04)}
-.region-card strong{display:block;font-family:'Chakra Petch',sans-serif;font-size:16px;margin-bottom:4px}
-.region-card p{font-size:12.5px;color:var(--muted)}
+.waitlist-form{display:flex;gap:8px;max-width:460px}
+.waitlist-form input{flex:1;min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;color:var(--text);font-size:14px;font-family:'IBM Plex Sans',sans-serif;padding:13px 14px;outline:none;transition:border-color .15s}
+.waitlist-form input:focus{border-color:var(--accent)}
+.waitlist-button{background:var(--accent);color:#04211d;border:none;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;padding:13px 20px;border-radius:9px;cursor:pointer;white-space:nowrap;transition:.14s}
+html[data-theme="light"] .waitlist-button{color:#fff}
+.waitlist-button:hover{filter:brightness(1.08)}
+.waitlist-button:disabled{cursor:wait;opacity:.72}
+.waitlist-message{min-height:20px;margin-top:10px;font-size:12.5px;color:var(--muted)}
+.waitlist-message.success{color:var(--up)}
+.waitlist-message.error{color:var(--down)}
+.fine{font-size:12px;color:var(--dim);margin-top:10px;max-width:36em;line-height:1.55}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){.waitlist-form{flex-direction:column}.waitlist-button{width:100%}}
 
-@media(max-width:880px){
-  .hero-grid,.story-grid{grid-template-columns:1fr}
-}
-@media(max-width:520px){
-  .intel-grid,.signal-row,.feature-grid{grid-template-columns:1fr}
-  .hero-sub{font-size:15px}
-}
+.coverage{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cov-l{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.cov-chip{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:6px 14px}
+.cov-chip.sel{color:var(--text);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.cov-chip.soon{opacity:.5}
 
-/* Latest layout refinements */
-.terminal-column{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.kairos-hero-definition{
-  padding:11px 14px;
-  border:1px solid rgba(201,162,75,.28);
-  border-radius:10px;
-  background:rgba(201,162,75,.045);
-}
-.kairos-hero-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:4px;
-}
-.kairos-word{
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1.5px;
-  color:var(--gold);
-}
-.kairos-greek{
-  font-size:10px;
-  color:var(--dim);
-}
-.kairos-hero-definition p{
-  margin:0;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.45;
-}
-.kairos-hero-definition strong{color:var(--text)}
+figure{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;position:relative;margin:0}
+.fig-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:12px}
+.fig-n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.fig-title{font-family:'IBM Plex Serif',serif;font-size:15px;font-weight:600}
+figcaption{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.source{margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);border-top:1px solid var(--line-soft);padding-top:8px}
+.kln text{font-family:'IBM Plex Mono',monospace;fill:var(--dim);font-size:11px}
+.annot{font-family:'IBM Plex Sans',sans-serif;font-size:11.5px;fill:var(--text)}
+.annot-b{fill:var(--gold);font-weight:600}
 
-.feature-line{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:7px;
-  margin:0 0 16px;
-  color:var(--muted);
-  font-size:11.5px;
-  line-height:1.4;
-}
-.feature-line > span:not(.feature-separator){
-  white-space:nowrap;
-}
-.feature-separator{
-  color:var(--gold);
-  font-size:9px;
-}
-.story-section{
-  padding:24px 0 32px;
-}
-.story-grid{
-  display:block;
-}
-.region-wide{
-  max-width:760px;
-  margin:0 auto;
-}
-.region-wide .region-card{
-  margin:0;
-  text-align:center;
-}
+.obs-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:14px}
+.obs-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.obs-state{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.obs-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.obs-m .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+.obs-m .v{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600}
+.layer-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;border:1px solid var(--line);border-radius:5px;padding:1px 5px;margin-left:6px;vertical-align:1px}
+.layer-tag.lo{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.layer-tag.li{color:var(--blue);border-color:color-mix(in srgb,var(--blue) 45%,transparent)}
+@media(max-width:520px){.obs-meta{grid-template-columns:1fr 1fr}}
 
-@media(max-width:600px){
-  .feature-line{
-    gap:6px;
-    font-size:10.5px;
-  }
-  .feature-line > span:not(.feature-separator){
-    white-space:normal;
-  }
-  .kairos-hero-head{
-    align-items:flex-start;
-  }
-}
+.rule{border:none;border-top:1px solid var(--line);margin:0}
 
-.kairos-hero-definition{padding:14px 18px}
-.kairos-word{font-size:14px!important;letter-spacing:1.8px}
-.kairos-greek{font-size:14px!important;color:var(--dim)}
-.kairos-hero-definition p{
- font-size:16px!important;
- line-height:1.5;
- margin-top:8px;
-}
-.kairos-hero-definition p strong{
- display:block;
- font-size:20px;
- margin-bottom:6px;
- color:var(--text);
-}
+.method{padding:40px 0 34px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.sec-h h2{font-size:22px;font-weight:600}
+.method .sub{font-size:14.5px;color:var(--muted);max-width:46em;line-height:1.6;margin-bottom:24px}
+.states{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.state{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;position:relative}
+.state .n{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.1em;margin-bottom:8px}
+.state .t{font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.state .t.c1{color:var(--muted)}.state .t.c2{color:var(--blue)}.state .t.c3{color:var(--gold)}.state .t.c4{color:var(--accent)}
+.state p{font-size:12.5px;color:var(--muted);line-height:1.5}
+.state-note{margin-top:14px;font-size:12.5px;color:var(--dim);line-height:1.55;max-width:56em}
+.state-note b{color:var(--muted);font-weight:600}
+@media(max-width:900px){.states{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.states{grid-template-columns:1fr}}
 
-/* Updated feature layout */
-.feature-grid-inline{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:8px 18px;
-  margin:0 0 16px;
-  color:var(--muted);
-  font-size:12px;
-}
-.feature-item{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  min-width:0;
-}
-.feature-diamond{
-  color:var(--gold);
-  font-size:9px;
-  flex:none;
-}
+.defsplit{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:38px 0 44px;align-items:start}
+.defcard{border-left:2px solid var(--gold);padding-left:20px}
+.defcard .g{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);margin-bottom:8px}
+.defcard h2{font-size:26px;font-weight:600;margin-bottom:10px}
+.defcard p{font-size:15px;color:var(--muted);line-height:1.65;max-width:32em}
+.defcard p b{color:var(--text);font-weight:600}
+.region-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.region-panel h3{font-size:19px;font-weight:600;margin:10px 0 8px}
+.region-panel p{font-size:14px;color:var(--muted);line-height:1.6;max-width:40em}
 
-/* Updated Kairos definition hierarchy */
-.kairos-heading-inline{
-  display:flex;
-  align-items:baseline;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.kairos-hero-definition{
-  padding:14px 18px;
-}
-.kairos-word{
-  font-size:14px!important;
-  letter-spacing:1.8px;
-}
-.kairos-greek{
-  font-size:13px!important;
-  color:var(--dim);
-}
-.kairos-hero-definition p{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-  margin:8px 0 0;
-}
-.kairos-definition-quote{
-  color:var(--dim);
-  font-size:12.5px;
-  font-style:italic;
-  font-weight:400;
-}
-.kairos-brand-copy{
-  color:var(--text);
-  font-family:'Chakra Petch',sans-serif;
-  font-size:21px;
-  font-weight:600;
-  line-height:1.2;
-}
-.kairos-brand-copy strong{
-  color:var(--text);
-}
-.kairos-find-it{
-  color:var(--kairos);
-  font-family:'Chakra Petch',sans-serif;
-  font-size:21px;
-  font-weight:700;
-  line-height:1.15;
-}
+footer{border-top:1px solid var(--line);margin-top:auto;padding:26px 0 40px;color:var(--muted);font-size:13px}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+.foot-grid a:hover{color:var(--text)}
+.disclaimer{margin-top:18px;font-size:11.5px;color:var(--dim);max-width:62em;line-height:1.55}
 
-@media(max-width:520px){
-  .feature-grid-inline{
-    grid-template-columns:1fr;
-    gap:7px;
-  }
-}
-
-/* Regional intelligence section */
-.region-section{
-  padding:18px 0 28px;
-}
-.region-banner{
-  display:grid;
-  grid-template-columns:auto minmax(0,1fr);
-  gap:6px 22px;
-  align-items:start;
-  padding:18px 20px;
-  border:1px solid rgba(58,214,196,.22);
-  border-radius:12px;
-  background:rgba(58,214,196,.04);
-}
-.region-kicker{
-  grid-row:1 / span 2;
-  padding-top:3px;
-  color:var(--accent);
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1.5px;
-  white-space:nowrap;
-}
-.region-banner h2{
-  font-family:'Chakra Petch',sans-serif;
-  font-size:18px;
-  line-height:1.2;
-  margin:0;
-}
-.region-banner p{
-  color:var(--muted);
-  font-size:12.5px;
-  line-height:1.6;
-  max-width:760px;
-}
-@media(max-width:650px){
-  .region-banner{
-    grid-template-columns:1fr;
-    gap:7px;
-  }
-  .region-kicker{
-    grid-row:auto;
-  }
-}
-
-/* Increase prominence of the definition quote */
-.kairos-definition-quote{
-  font-size:17px !important;
-  line-height:1.35;
-  color:var(--text);
-  opacity:.9;
-  font-style:italic;
-  margin-bottom:6px;
-}
-
-/* Refined Kairos hero typography */
-.kairos-definition-quote{
-  font-size:15px !important;
-  color:var(--muted) !important;
-  opacity:1;
-  margin-bottom:10px;
-}
-.kairos-brand-line{
-  display:block;
-  width:100%;
-  font-family:'Chakra Petch',sans-serif;
-  font-size:23px;
-  font-weight:600;
-  line-height:1.2;
-  color:var(--text);
-}
-.kairos-brand-line strong{
-  font-weight:700;
-  color:var(--text);
-}
-
-/* Final typography refinement */
-.kairos-brand-line{
-  font-size:20px !important;
-  line-height:1.22;
-}
-.status-title{
-  font-size:18px !important;
-}
-
-
-.kairos-brand-line{
-  font-size:18px !important;
-  line-height:1.22 !important;
-}
-
-
-
-
-/* Email waitlist */
-.waitlist-form{
-  display:flex;
-  gap:8px;
-  max-width:440px;
-}
-.waitlist-form input{
-  flex:1;
-  min-width:0;
-  background:var(--surface-2);
-  border:1px solid var(--line);
-  border-radius:9px;
-  color:var(--text);
-  font-size:14px;
-  font-family:'Archivo',sans-serif;
-  padding:13px 14px;
-  outline:none;
-}
-.waitlist-form input:focus{
-  border-color:var(--accent);
-}
-.waitlist-button:disabled{
-  cursor:wait;
-  opacity:.72;
-}
-.waitlist-message{
-  min-height:20px;
-  margin-top:10px;
-  font-size:12px;
-  color:var(--muted);
-}
-.waitlist-message.success{color:var(--kairos)}
-.waitlist-message.error{color:var(--live)}
-.sr-only{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
-}
-@media(max-width:520px){
-  .waitlist-form{flex-direction:column}
-  .waitlist-button{width:100%}
-}
+@media(max-width:900px){.lead,.defsplit{grid-template-columns:1fr}.lead h1{font-size:33px}}
+@media(prefers-reduced-motion:reduce){.dot{animation:none}}
 </style>
 <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -487,7 +157,7 @@ main{flex:1;display:block;padding:20px 0 36px}
         person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
     })
 </script>
-<link href="https://kolmo.app/" rel="canonical"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="Kolmo | Kairos Terminal – AI-Powered Real-Time Esports Intelligence" name="twitter:title"/><meta content="AI-powered real-time esports intelligence. before Kairos Terminal launches Join the waitlist for early access to Kairos Terminal." name="twitter:description"/><meta content="https://kolmo.app/og-image.png" name="twitter:image"/><script type="application/ld+json">{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -515,121 +185,163 @@ main{flex:1;display:block;padding:20px 0 36px}
     },
     {
       "@type": "SoftwareApplication",
-      "@id": "https://kolmo.app/#kairos-terminal",
-      "name": "Kairos Terminal",
+      "@id": "https://kolmo.app/#kairos",
+      "name": "Kolmo",
       "applicationCategory": "SportsApplication",
       "operatingSystem": "Web",
       "url": "https://kolmo.app/",
-      "description": "Kairos Terminal is Kolmo's flagship real-time esports intelligence product, powered by the Kairos AI engine. It identifies decisive moments, momentum shifts, and live win-probability changes in League of Legends and Counter-Strike 2 matches.",
+      "description": "Kolmo is a real-time esports intelligence platform. Its Kairos engine detects structural shifts in live League of Legends and Counter-Strike 2 matches — detection, not prediction.",
       "creator": {
         "@id": "https://kolmo.app/#organization"
       },
       "isAccessibleForFree": true
     }
   ]
-}</script></head>
+}</script>
+</head>
 <body>
+
 <header>
-<div class="wrap">
-<span aria-label="Kolmo" class="logo">
-<svg aria-hidden="true" class="kmark" fill="none" viewbox="0 0 64 64">
-<path d="M14,8 L14,52 L58,52" stroke="var(--accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M23,39 L28,44 L23,49 L18,44 Z" fill="var(--accent)"></path>
-<path d="M35,26.5 L41.5,33 L35,39.5 L28.5,33 Z" fill="var(--accent)"></path>
-<path d="M49,11.5 L57.5,20 L49,28.5 L40.5,20 Z" fill="var(--kairos)"></path>
-</svg>kolmo
-    </span>
-</div>
+  <div class="wrap nav">
+    <span class="logo" aria-label="Kolmo"><svg viewBox="0 0 32 32" aria-hidden="true"><circle class="ring" cx="16" cy="16" r="13"/><circle class="ring" cx="16" cy="16" r="5.6"/></svg>kolmo</span>
+    <span class="brand-label">Esports Intelligence</span>
+    <div class="nav-right">
+      <span class="status-pill"><span class="dot"></span>PRE-LAUNCH · FIRST LIGHT SOON</span>
+      <button class="ttog" id="tt" onclick="togTheme()" title="Toggle theme" aria-label="Toggle color theme">☾</button>
+    </div>
+  </div>
 </header>
-<main>
-<div class="wrap hero-grid">
-<section aria-label="Kolmo early access" class="hero-copy">
-<div class="pill"><span class="ld"></span>EARLY ACCESS</div>
-<h1>We know when the match <span class="grad">turns.</span></h1>
-<p class="hero-sub">AI-powered real-time esports intelligence for League of Legends and CS2.</p>
-<p class="lede">
-        Kolmo is building the AI intelligence layer for esports. Powered by Kairos.
-        <b>Kairos</b> is our AI engine for identifying decisive moments in live matches.
-        <b>Join the waitlist for early access. Kairos Terminal launches with Kolmo.</b>
-</p>
-<div aria-label="Kolmo features" class="feature-grid-inline"><div class="feature-item"><span class="feature-diamond">◆</span><span>Live Match Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Kairos Detection</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Regional Intelligence</span></div><div class="feature-item"><span class="feature-diamond">◆</span><span>Tournament Hub & Community</span></div></div>
-<form class="waitlist-form" id="waitlistForm">
-<label class="sr-only" for="waitlistEmail">Email address</label>
-<input aria-label="Email address" autocomplete="email" id="waitlistEmail" name="email" placeholder="Enter your email" required="" type="email"/>
-<button class="btn waitlist-button" type="submit">Join Waitlist</button>
-</form>
-<p aria-live="polite" class="waitlist-message" id="waitlistMessage"></p>
-<p class="fine">Early access members will be the first to experience Kairos Terminal, preview new features, and help shape the future of Kolmo. first access to Kairos moments and Kairos Terminal updates.</p>
-</section>
-<section aria-label="Kairos Terminal preview" class="terminal-column"><div aria-label="Kairos definition" class="kairos-hero-definition">
-<div class="kairos-hero-head"><div class="kairos-heading-inline"><span class="kairos-word">KAIROS</span><span class="kairos-greek"><em>καιρός</em> · Ancient Greek</span></div></div>
-<p><span class="kairos-definition-quote">“The exact or critical moment.”</span><div class="kairos-brand-line">Every match has a <strong>Kairos.</strong> We find it.</div></p>
-</div>
-<div aria-label="Kairos Terminal simulated preview" class="term" id="termPanel" role="region">
-<div class="term-head">
-<span class="term-title">◆ KAIROS TERMINAL</span>
-<span class="term-live"><span class="ld"></span>PREVIEW</span>
-</div>
-<div class="term-match">
-<span class="ta">T1</span>
-<span class="match-context">World Championship · Game 5</span>
-<span class="tb">BLG</span>
-</div>
-<div class="term-sub">Preview of Kairos Terminal, Kolmo's flagship real-time esports intelligence product.</div>
-<div class="kairos-status">
-<div>
-<div class="status-kicker">KAIROS DETECTED</div>
-<div class="status-title">Momentum has shifted.</div>
-</div>
-<div class="confidence">
-<strong id="confidenceNow">94%</strong>
-<span>confidence</span>
-</div>
-</div>
-<div class="intel-grid">
-<div class="intel-card">
-<div class="metric-label">T1 Win Probability</div>
-<div class="metric-value"><span id="probBefore">41</span>% → <span id="probAfter">64</span>%</div>
-<div class="metric-shift" id="probShift">▲ +23.0%</div>
-<div class="prob-bar"><span id="probBar"></span></div>
-</div>
-<div class="intel-card">
-<div class="metric-label">Why it changed</div>
-<ul class="reason-list" id="whyList">
-<li>Baron secured</li>
-<li>Mid inhibitor opened</li>
-<li>Vision control established</li>
-</ul>
-</div>
-</div>
-<div class="signal-row">
-<div class="signal"><span>Momentum</span><strong id="momentumSignal">T1 rising</strong></div>
-<div class="signal"><span>Feed</span><strong id="regionSignal">🇺🇸 US</strong></div>
-<div class="signal"><span>Context</span><strong id="historySignal">Top 8% comeback</strong></div>
-</div>
-</div>
-</section>
-</div>
+
+<main class="wrap">
+
+  <section class="lead">
+    <div>
+      <span class="kicker">Kolmo Research · Pre-launch Note 001</span>
+      <h1>We don't predict the future. We detect the moment it <em>changes.</em></h1>
+      <p class="dek">
+        Kolmo is a research lab for live esports. <b>Kairos</b>, our detection engine,
+        observes the structure of a League of Legends or CS2 match as it runs —
+        and flags the moment that structure shifts, before the scoreline shows it.
+        Not a forecast. A detection, timestamped and accountable.
+      </p>
+      <div class="byline"><b>Kolmo</b> · Observation begins at launch</div>
+
+      <form class="waitlist-form" id="waitlistForm">
+        <label class="sr-only" for="waitlistEmail">Email address</label>
+        <input aria-label="Email address" autocomplete="email" id="waitlistEmail" name="email" placeholder="Enter your email" required type="email"/>
+        <button class="waitlist-button" type="submit">Request First Light access</button>
+      </form>
+      <p aria-live="polite" class="waitlist-message" id="waitlistMessage"></p>
+      <p class="fine">First Light — a telescope's first observation. Early observers get first access to Kolmo, preview new instruments before release, and help decide what we build next.</p>
+
+      <div class="coverage">
+        <span class="cov-l">Coverage</span>
+        <span class="cov-chip sel">League of Legends</span>
+        <span class="cov-chip sel">CS2</span>
+        <span class="cov-chip soon">Dota 2 · soon</span>
+        <span class="cov-chip soon">Valorant · soon</span>
+      </div>
+    </div>
+
+    <div>
+      <figure>
+        <div class="fig-head"><span class="fig-title">Live win probability with a detected Kairos</span><span class="fig-n">Fig. 1</span></div>
+        <svg class="kln" viewBox="0 0 680 320" width="100%" role="img" aria-label="Illustrative chart of live win probability over match time, with a Kairos detection marked at 27 minutes 40 seconds">
+          <line x1="40" y1="230" x2="660" y2="230" stroke="var(--line-soft)"/>
+          <line x1="40" y1="160" x2="660" y2="160" stroke="var(--line)" stroke-dasharray="3 4"/>
+          <line x1="40" y1="90"  x2="660" y2="90"  stroke="var(--line-soft)"/>
+          <text x="26" y="234" text-anchor="end">25</text>
+          <text x="26" y="164" text-anchor="end">50</text>
+          <text x="26" y="94"  text-anchor="end">75</text>
+          <text x="40"  y="314">0:00</text>
+          <text x="195" y="314" text-anchor="middle">10:00</text>
+          <text x="350" y="314" text-anchor="middle">20:00</text>
+          <text x="505" y="314" text-anchor="middle">30:00</text>
+          <text x="660" y="314" text-anchor="end">40:00</text>
+          <polygon fill="var(--band)" points="40,146 102,140 164,154 226,163 288,174 350,180 412,182 459,185 469,171 482,132 505,118 536,110 567,101 598,90 629,79 660,68 660,96 629,107 598,118 567,129 536,138 505,146 482,160 469,199 459,213 412,210 350,208 288,202 226,191 164,182 102,168 40,174"/>
+          <polyline fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linejoin="round" points="40,160 102,154 164,168 226,177 288,188 350,194 412,196 459,199 469,185 482,146 505,132 536,124 567,115 598,104 629,93 660,82"/>
+          <line x1="469" y1="34" x2="469" y2="300" stroke="var(--gold)" stroke-dasharray="4 4" opacity=".7"/>
+          <circle cx="469" cy="185" r="5.5" fill="var(--gold)"/>
+          <text x="459" y="46" text-anchor="end" class="annot annot-b">Kairos detected · 27:40</text>
+          <text x="459" y="62" text-anchor="end" class="annot">structure shifted before the scoreline</text>
+        </svg>
+        <figcaption>The line is the live model estimate of win probability; the shaded band is its uncertainty. The gold marker is the moment Kairos flags the structural shift — minutes before the result makes it obvious.</figcaption>
+        <div class="source">ILLUSTRATIVE EXAMPLE — not live match data. Actual detections ship with timestamps, evidence, and an observation log.</div>
+      </figure>
+
+      <div class="obs-card" aria-label="Example observation record">
+        <div class="obs-head">
+          <span class="obs-state">◆ Kairos detected → confirmed</span>
+          <span class="fig-n">Observation record</span>
+        </div>
+        <div class="obs-meta">
+          <div class="obs-m"><div class="k">First seen<span class="layer-tag lo">O · OBSERVED</span></div><div class="v">27:40</div></div>
+          <div class="obs-m"><div class="k">Impact<span class="layer-tag li">I · INFERRED</span></div><div class="v">Exceptional</div></div>
+          <div class="obs-m"><div class="k">Rarity<span class="layer-tag li">I · INFERRED</span></div><div class="v">Top 8%</div></div>
+        </div>
+        <div class="source">ILLUSTRATIVE EXAMPLE — every real detection is logged with lead time, its falsifier, and post-match verification. Observed facts and inferences are always labeled apart.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule"/>
+
+  <section class="method">
+    <div class="sec-h"><h2>How an observation works</h2><span class="kicker">Method</span></div>
+    <p class="sub">Kolmo is quiet by design. Most minutes of most matches, the instruments just watch. A detection is rare, staged, and accountable — and a match with no Kairos is a normal observation, not a failure.</p>
+    <div class="states">
+      <div class="state"><div class="n">STAGE 01</div><div class="t c1">Signal</div><p>An anomaly below threshold. Logged, not alerted. The instruments keep watching.</p></div>
+      <div class="state"><div class="n">STAGE 02</div><div class="t c2">Candidate</div><p>A provisional turning point. The model is weighing evidence before it speaks.</p></div>
+      <div class="state"><div class="n">STAGE 03</div><div class="t c3">Kairos detected</div><p>The detection threshold is passed. The structure of the match has changed — flagged with a timestamp and the reasons why.</p></div>
+      <div class="state"><div class="n">STAGE 04</div><div class="t c4">Confirmed</div><p>The match's subsequent state supports the call. Lead time — how early we saw it — goes on the record.</p></div>
+    </div>
+    <p class="state-note"><b>And when we're wrong, that's on the record too.</b> Detections that don't hold are reclassified as false signals, publicly, in the observation log. An observatory that hides its misses isn't one.</p>
+  </section>
+
+  <hr class="rule"/>
+
+  <section class="defsplit">
+    <div class="defcard">
+      <div class="g">KAIROS · καιρός · Ancient Greek — "the exact or critical moment."</div>
+      <h2>A Kairos is not a prediction.</h2>
+      <p>It is the moment the structure of the match changes — the point where a game stops being the game it was. <b>When the match changes, Kolmo sees it first.</b> Every detection carries its evidence: what moved, when we first saw it, and whether it held.</p>
+    </div>
+    <div class="region-panel">
+      <span class="kicker">Regional Intelligence</span>
+      <h3>Built for your region. Connected to the world.</h3>
+      <p>Every region watches a different sky. Kolmo prioritizes the leagues and moments that matter where you are, while surfacing the globally significant ones no one should miss.</p>
+    </div>
+  </section>
+
 </main>
-<section aria-label="Regional intelligence" class="region-section">
-<div class="wrap">
-<div class="region-banner">
-<div class="region-kicker">REGIONAL INTELLIGENCE</div>
-<h2>Built for your region. Connected to the world.</h2>
-<p>Every region experiences esports differently. Kolmo prioritizes the leagues and Kairos moments most relevant to you while surfacing globally significant moments no fan should miss.</p>
-</div>
-</div>
-</section><footer>
-<div class="wrap foot">
-<span class="mono">Kolmo — the intelligence layer for esports. Powered by Kairos.</span>
-<div class="foot-links">
-<a href="mailto:early@kolmo.app">Contact</a>
-</div>
-</div>
-<div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">Kolmo is a real-time esports intelligence platform. We publish AI-generated match intelligence and live probability models for informational and entertainment purposes only. Kolmo does not provide betting advice or wagering services.</div>
-<div class="wrap" style="margin-top:10px;font-size:11.5px;color:var(--dim)">© 2026 MLEM, LLC, d/b/a Kolmo App. All rights reserved.</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <span class="mono" style="font-size:12px">KOLMO — We don't predict the future. We detect the moment it changes.</span>
+    <a href="mailto:early@kolmo.app" class="mono" style="font-size:12px">CONTACT · early@kolmo.app</a>
+  </div>
+  <div class="wrap disclaimer">Kolmo is a real-time esports intelligence platform. We publish AI-generated match intelligence and live probability models for informational and entertainment purposes only. Kolmo does not provide betting advice or wagering services.</div>
+  <div class="wrap disclaimer">© 2026 MLEM, LLC, d/b/a Kolmo App. All rights reserved.</div>
 </footer>
+
 <script>
+function togTheme(){
+  var html=document.documentElement;
+  var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  document.getElementById('tt').textContent=next==='dark'?'☾':'☀';
+  try{localStorage.setItem('kolmo-theme',next)}catch(e){}
+}
+(function(){
+  try{
+    var saved=localStorage.getItem('kolmo-theme');
+    if(saved==='light'){
+      document.documentElement.setAttribute('data-theme','light');
+      document.getElementById('tt').textContent='☀';
+    }
+  }catch(e){}
+})();
+
 (function(){
   var form=document.getElementById('waitlistForm');
   var emailInput=document.getElementById('waitlistEmail');
@@ -672,12 +384,13 @@ main{flex:1;display:block;padding:20px 0 36px}
 
       if(window.posthog){
         posthog.capture('waitlist_signup',{
-          source:'homepage'
+          source:'homepage',
+          variant:'observatory_v2'
         });
       }
 
       message.className='waitlist-message success';
-      message.textContent="◆ You're on the waitlist. We'll email you before launch.";
+      message.textContent="◆ You're on the First Light list. We'll email you before observation begins.";
       form.reset();
       form.style.display='none';
     }catch(error){
@@ -687,38 +400,6 @@ main{flex:1;display:block;padding:20px 0 36px}
       button.textContent=originalLabel;
     }
   });
-})();
-
-
-
-(function(){
-  var term=document.getElementById('termPanel');
-  if(!term)return;
-  var scenarios=[
-    {before:41,after:64,confidence:94,reasons:['Baron secured','Mid inhibitor opened','Vision control established'],momentum:'T1 rising',region:'🇺🇸 US',history:'Top 8% comeback'},
-    {before:68,after:47,confidence:91,reasons:['BLG wins teamfight','Dragon soul denied','Gold lead cut in half'],momentum:'BLG surging',region:'🇸🇪 Sweden',history:'Finals-level swing'},
-    {before:36,after:58,confidence:96,reasons:['Three-player pickoff','Elder setup secured','Side-lane pressure released'],momentum:'T1 reversal',region:'🇩🇰 Denmark',history:'Top 5% turnaround'},
-    {before:55,after:73,confidence:92,reasons:['Objective secured','Map control established','Economy advantage widened'],momentum:'G2 surging',region:'🇩🇪 Germany',history:'Playoff swing'},
-    {before:48,after:67,confidence:95,reasons:['Ace won','Baron secured','Vision denied'],momentum:'Gen.G rising',region:'🇰🇷 Korea',history:'Top 10% swing'},
-    {before:46,after:69,confidence:90,reasons:['Gold lead flipped','Triple kill','Dragon soul secured'],momentum:'GEN rising',region:'🌍 Global',history:'Major momentum shift'}
-  ];
-  var i=0;
-  function render(s){
-    document.getElementById('probBefore').textContent=s.before;
-    document.getElementById('probAfter').textContent=s.after;
-    document.getElementById('confidenceNow').textContent=s.confidence+'%';
-    var delta=s.after-s.before;
-    document.getElementById('probShift').textContent=(delta>=0?'▲ +':'▼ ')+delta.toFixed(1)+'%';
-    document.getElementById('probBar').style.width=s.after+'%';
-    document.getElementById('momentumSignal').textContent=s.momentum;
-    document.getElementById('regionSignal').textContent=s.region;
-    document.getElementById('historySignal').textContent=s.history;
-    document.getElementById('whyList').innerHTML=s.reasons.map(function(r){return '<li>'+r+'</li>';}).join('');
-  }
-  render(scenarios[0]);
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    setInterval(function(){i=(i+1)%scenarios.length;render(scenarios[i]);},3200);
-  }
 })();
 </script>
 </body>
