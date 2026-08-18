@@ -56,6 +56,11 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 8
 @keyframes pulse{50%{opacity:.35}}
 .ttog{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);cursor:pointer;font-size:15px}
 .ttog:hover{color:var(--text);border-color:var(--accent)}
+@media(max-width:640px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .nav{gap:10px}
+  .brand-label,.status-pill{display:none}
+}
 
 .kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .kicker.gold{color:var(--gold)}
