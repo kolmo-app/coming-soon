@@ -9,20 +9,27 @@ Owner: Ray. Scope: the public `kolmo.app` landing page and the future public con
   were already allowed by the wildcard rule; naming them documents intent.
   User-directed fetchers have provider-specific rules: OpenAI says robots.txt
   may not apply to ChatGPT-User. It is not the ChatGPT search-index opt-out bot.
-- GPTBot collection is disallowed independently of ChatGPT search. This is a
-  crawler preference, not a guarantee against every form of AI collection.
-- ClaudeBot and Google-Extended currently inherit the permissive wildcard rule.
-  Their training-use policies remain separate decisions; this change does not
-  add a new training opt-out for them. Google-Extended covers Gemini training
-  AND some Gemini/Vertex grounding, while not affecting Google Search inclusion
-  or ranking. Do not describe it as a training-only switch.
+- GPTBot, ClaudeBot, CCBot and Google-Extended are disallowed for the named
+  training/data-collection uses, following the pre-merge protection decision.
+  CCBot is Common Crawl's general web-archive crawler, not a search-only bot.
+  This preference does not remove past copies or guarantee exclusion from every
+  training dataset. It can reduce future discovery through these datasets.
+- The Google-Extended decision also restricts some Gemini/Vertex grounding,
+  while not affecting Google Search inclusion or ranking. This is an explicit
+  trade-off in favor of limiting collection, not a training-only switch.
+  OAI-SearchBot, Claude-SearchBot, PerplexityBot, Googlebot and Bing remain allowed.
+  The wildcard rule is `Allow: /`; there is no blanket wildcard disallow.
 - `sitemap.xml` lists the homepage and the implemented Kairos definition page
   at `/glossary/kairos/`, linked from the homepage. Do not list planned,
   unpublished, empty or authenticated pages. Omit `lastmod` until a reliable
   content-modification timestamp is available; never use each build time.
 - Homepage title, description, Open Graph and Twitter metadata describe early
-  access consistently. Sharing uses the existing 180 x 180 brand icon with a
-  summary card; a larger approved social image can replace it later.
+  access consistently. Sharing uses `/og-image.png` and `summary_large_image`.
+  The generated brand card is 1730 x 909 PNG (approximately the requested
+  1200 x 630 aspect ratio); metadata records its real dimensions. It is a brand
+  illustration, with no performance numbers. The 180 x 180 icon remains the
+  organization logo and Apple touch icon. Exact card crops differ by platform;
+  verify actual previews after deployment instead of promising a universal size.
 - Organization, WebSite and WebPage JSON-LD describe the landing page. They do
   not assert that the unreleased application is free or available now.
 - The terminal preview is explicitly labelled as simulated. `data-nosnippet`
@@ -38,14 +45,23 @@ Owner: Ray. Scope: the public `kolmo.app` landing page and the future public con
 
 1. Review this change on the actual publishing branch. This repository currently
    serves GitHub Pages; changing the separate engine or a Vercel preview does
-   not update `kolmo.app`. Coordinate the open landing-page redesign when merging
-   so that these metadata fixes are carried forward.
+   not update `kolmo.app`. Preferred sequence: review and merge SEO PR #2 first,
+   then update redesign PR #1 from main (rebase or merge according to branch
+   policy). Do not overwrite the SEO changes when resolving index.html conflicts.
+   Use the redesign preservation checklist below before merging PR #1.
 2. After deployment, check unauthenticated HTTPS responses for `/`,
-   `/glossary/kairos/`, `/robots.txt`, `/sitemap.xml` and `/apple-touch-icon.png`:
-   200, correct content types, no login
-   challenge and no accidental `noindex` header on the homepage.
-3. Verify `kolmo.app` ownership in Google Search Console and Bing Webmaster Tools
-   using the actual account-provided token or DNS record. Never invent a token.
+   `/glossary/kairos/`, `/robots.txt`, `/sitemap.xml`, `/og-image.png` and
+   `/apple-touch-icon.png`: 200, correct content types, no login challenge and
+   no accidental `noindex` header on public pages. Confirm the new image is a
+   decodable PNG with the declared dimensions; verify shared cards on Discord,
+   X, Slack and KakaoTalk, allowing for platform caching and different crops.
+3. Prefer a Google Search Console Domain property for `kolmo.app`, using its
+   account-issued DNS TXT record (or the provider integration offered by GSC).
+   Keep that record through redesigns and hosting moves. Then import the verified
+   property into Bing Webmaster Tools. If importing is unavailable, use Bing's
+   account-issued DNS CNAME / Domain Connect instructions. Do not assume both
+   products use TXT, and never invent verification values. This requires access
+   to the relevant accounts and DNS provider; that access is not verified here.
 4. Submit `https://kolmo.app/sitemap.xml` in both services. Inspect the canonical
    homepage and request indexing where available. Record submission and actual
    indexed status separately: submission is not proof of indexing.
@@ -55,6 +71,43 @@ Owner: Ray. Scope: the public `kolmo.app` landing page and the future public con
    protected and serve `X-Robots-Tag: noindex` for preview responses. Test both
    production and preview after migration; this static patch does not configure
    Vercel or any external account.
+
+7. Before merge, review the homepage and glossary at desktop and mobile widths:
+   visible simulated label, readable content, navigation, image loading, no
+   horizontal overflow and a reachable waitlist form. Repeat on the deployed site.
+   An agent-browser retry still failed at daemon startup in this environment;
+   no visual pass is claimed.
+8. After deployment, make one clearly labelled test signup with an owner-controlled
+   inbox. Check success/error feedback, actual delivery to the configured recipient
+   and the PostHog conversion event. Record and clean up the test entry. Static
+   validation and a mocked success response do not establish real delivery.
+
+## Redesign PR #1 preservation checklist
+
+- [ ] Retain one doctype and one canonical URL per page; keep title, description,
+  Open Graph and Twitter metadata aligned with actual early-access status.
+- [ ] Keep `/og-image.png`, its correct dimensions, `summary_large_image`, and
+  the separate organization logo; check assets in the deployed response.
+- [ ] Preserve Organization, WebSite and WebPage JSON-LD and stable entity IDs.
+- [ ] Keep the visible simulated label and `data-nosnippet` on the demo values.
+- [ ] Keep the glossary link, page, sitemap entries, robots policy and this document.
+- [ ] Recheck page layout, waitlist submission/delivery and analytics after integration.
+
+## Schema at product launch
+
+Organization already exists in homepage JSON-LD. Keep Organization, WebSite and
+WebPage: they describe the company, site and page respectively. Do not replace
+them wholesale with SoftwareApplication when the product launches.
+
+Add a separate SoftwareApplication entity to the actual product page once the
+application is publicly available and its facts are confirmed. Give it a stable
+`@id`, link the page's `mainEntity` to it and link its publisher to Organization.
+Describe the actual name, URL, application category, supported platform, version
+and offer only where known and visible on that page. Do not infer that the whole
+application is free because match schedules are free; model each real offer
+accurately. Never fabricate ratings/reviews to qualify for a Google rich result.
+Validate the markup against the current provider requirements at release.
+
 
 Search Console, Bing ownership/submission and production deployment are separate
 operations, not completed by committing these files. Crawling, indexing, rankings
@@ -164,3 +217,10 @@ optional for a demonstrated consumer and is not a launch requirement.
 - https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 - https://docs.perplexity.ai/docs/resources/perplexity-crawlers
 - https://blogs.bing.com/webmaster/July-2025/Keeping-Content-Discoverable-with-Sitemaps-in-AI-Powered-Search
+
+- https://support.google.com/webmasters/answer/9008080
+- https://www.bing.com/webmasters/help/add-and-verify-site-12184f8b
+- https://blogs.bing.com/webmaster/september-2019/Import-sites-from-Search-Console-to-Bing-Webmaster-Tools
+- https://commoncrawl.org/faq
+- https://schema.org/SoftwareApplication
+- https://developers.google.com/search/docs/appearance/structured-data/software-app

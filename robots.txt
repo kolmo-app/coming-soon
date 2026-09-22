@@ -18,8 +18,18 @@ Allow: /
 User-agent: Claude-User
 Allow: /
 
-# OpenAI model-training collection is separate from ChatGPT search.
+# Limit the named training/data-collection uses; public search stays allowed.
 User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Also limits some Gemini/Vertex grounding; does not block Google Search.
+User-agent: Google-Extended
 Disallow: /
 
 Sitemap: https://kolmo.app/sitemap.xml
