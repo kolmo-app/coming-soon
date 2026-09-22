@@ -8,6 +8,16 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+# User-initiated fetchers have provider-specific robots.txt behavior.
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 # OpenAI model-training collection is separate from ChatGPT search.
 User-agent: GPTBot
 Disallow: /

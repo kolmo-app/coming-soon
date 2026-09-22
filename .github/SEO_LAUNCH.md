@@ -4,10 +4,20 @@ Owner: Ray. Scope: the public `kolmo.app` landing page and the future public con
 
 ## Current implementation
 
-- `robots.txt` allows ordinary search crawlers, OAI-SearchBot and PerplexityBot.
+- `robots.txt` allows ordinary search crawlers, OAI-SearchBot, PerplexityBot,
+  Claude-SearchBot, ChatGPT-User and Claude-User explicitly. The latter three
+  were already allowed by the wildcard rule; naming them documents intent.
+  User-directed fetchers have provider-specific rules: OpenAI says robots.txt
+  may not apply to ChatGPT-User. It is not the ChatGPT search-index opt-out bot.
 - GPTBot collection is disallowed independently of ChatGPT search. This is a
   crawler preference, not a guarantee against every form of AI collection.
-- `sitemap.xml` lists only the existing canonical homepage. Do not list planned,
+- ClaudeBot and Google-Extended currently inherit the permissive wildcard rule.
+  Their training-use policies remain separate decisions; this change does not
+  add a new training opt-out for them. Google-Extended covers Gemini training
+  AND some Gemini/Vertex grounding, while not affecting Google Search inclusion
+  or ranking. Do not describe it as a training-only switch.
+- `sitemap.xml` lists the homepage and the implemented Kairos definition page
+  at `/glossary/kairos/`, linked from the homepage. Do not list planned,
   unpublished, empty or authenticated pages. Omit `lastmod` until a reliable
   content-modification timestamp is available; never use each build time.
 - Homepage title, description, Open Graph and Twitter metadata describe early
@@ -18,6 +28,11 @@ Owner: Ray. Scope: the public `kolmo.app` landing page and the future public con
 - The terminal preview is explicitly labelled as simulated. `data-nosnippet`
   asks Google to exclude its illustrative values from snippets; it is not a
   universal control for all AI services. Keep the visible label for readers.
+- The glossary supplies its definition, examples, evidence limitations and CTA
+  in static HTML, with WebPage and DefinedTerm markup. It makes no measured
+  detection, accuracy or live-data claim. Glossary analytics delivery is not
+  implemented/verified by this patch; connect it to the site's measurement
+  setup before claiming complete attribution across landing pages.
 
 ## Release checklist
 
@@ -25,8 +40,9 @@ Owner: Ray. Scope: the public `kolmo.app` landing page and the future public con
    serves GitHub Pages; changing the separate engine or a Vercel preview does
    not update `kolmo.app`. Coordinate the open landing-page redesign when merging
    so that these metadata fixes are carried forward.
-2. After deployment, check unauthenticated HTTPS responses for `/`, `/robots.txt`,
-   `/sitemap.xml` and `/apple-touch-icon.png`: 200, correct content types, no login
+2. After deployment, check unauthenticated HTTPS responses for `/`,
+   `/glossary/kairos/`, `/robots.txt`, `/sitemap.xml` and `/apple-touch-icon.png`:
+   200, correct content types, no login
    challenge and no accidental `noindex` header on the homepage.
 3. Verify `kolmo.app` ownership in Google Search Console and Bing Webmaster Tools
    using the actual account-provided token or DNS record. Never invent a token.
@@ -44,6 +60,41 @@ Search Console, Bing ownership/submission and production deployment are separate
 operations, not completed by committing these files. Crawling, indexing, rankings
 and AI citation are not guaranteed by a robots rule or sitemap.
 
+## Evidence boundaries for AI-search advice
+
+- Initial HTML content is the engineering requirement for this site. Static
+  HTML, SSG and SSR can all meet it. The current GitHub Pages landing and glossary
+  already provide text without JavaScript. React/Vue alone does not determine
+  crawlability; inspect the response. Vercel/MERJ's large crawl study supports
+  this design choice, but is an observation of measured bots and time periods,
+  not a permanent specification for every AI product or browser agent.
+- Bing registration is useful, but Bing ranking is not documented as the sole
+  determinant of ChatGPT citations. OpenAI uses its own search crawler and may
+  work with other search providers. A model can also receive information in
+  user messages, files, connected sources or direct page retrieval; real-time
+  search is not the only conceivable way it can know a new site.
+- A concise answer, descriptive headings and truthful update dates help readers.
+  There is no established universal 80-word citation rule, mandatory paragraph
+  chunk size or guarantee that newer dates alone make content preferable.
+- Google stopped displaying FAQ rich results on 2026-05-07 and removed the
+  feature documentation on 2026-06-15. FAQ content can still serve readers;
+  FAQPage is not a KOLMO launch dependency or a promised AI visibility boost.
+- Original evidence and useful synthesis are content priorities, not a proven
+  exclusive path to discovery. Publish only supported, permitted facts. A Kairos
+  detection timestamp must link to contemporaneous evidence; distinguish match
+  clock, actual capture/detection time and later review/publication time. Pair
+  any model number with its version, evaluation scope and uncertainty.
+- Earn authentic external references through useful work. Do not manufacture
+  Reddit posts, reviews or mentions, or assume an individual mention guarantees
+  an AI ranking benefit.
+- Describe KOLMO's actual esports-analysis offering accurately. Do not claim
+  that every betting-related source is automatically excluded from citations,
+  or relabel a different service to evade a platform policy. Product-use rules
+  and search/source-selection behavior are different questions.
+- Google says llms.txt does not affect its Search visibility or rankings. It can
+  have maintenance cost, so add it only for a concrete consumer and keep it in
+  sync with the public site. It grants no additional data rights.
+
 ## Public content rollout
 
 The paths below are proposed conventions, not currently published pages.
@@ -59,7 +110,7 @@ The paths below are proposed conventions, not currently published pages.
 
 Each released page must provide useful text without requiring client JavaScript,
 a unique title/description, an absolute canonical URL and ordinary HTML links.
-Use SSR or static generation where necessary. Structured data must match visible
+Use static HTML, static generation or SSR as appropriate. Structured data must match visible
 content. Add Article markup only to actual articles; no fake reviews, ratings,
 events or author profiles. Translated pages need their own reviewed content,
 language URLs and reciprocal `hreflang` links before being listed as translations.
@@ -86,6 +137,10 @@ optional for a demonstrated consumer and is not a launch requirement.
   successful `waitlist_signup` conversions. Keep direct/unknown traffic separate;
   stripped referrers must not be guessed as AI visits. Validate event delivery
   before treating existing frontend instrumentation as working measurement.
+- Use the existing PostHog setup for this funnel unless an additional GA4 use
+  case is identified. Referrer attribution is possible in either system; GA4
+  is not a requirement for AI discovery. Include recognizable sources such as
+  chatgpt.com, perplexity.ai and claude.ai, with exact/subdomain-aware matching.
 - After product launch, extend conversion reporting to signup, team follow,
   notification opt-in and paid conversion. Avoid collecting full user query
   strings or email addresses as search-attribution properties.
@@ -96,6 +151,12 @@ optional for a demonstrated consumer and is not a launch requirement.
 ## Official references (reviewed 2026-09-22)
 
 - https://developers.openai.com/api/docs/bots
+- https://help.openai.com/en/articles/9237897-chatgpt-search
+- https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
+- https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended
+- https://developers.google.com/search/updates
+- https://vercel.com/blog/the-rise-of-the-ai-crawler
+- https://schema.org/DefinedTerm
 - https://developers.google.com/search/docs/appearance/ai-features
 - https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 - https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
