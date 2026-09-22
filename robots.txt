@@ -1,0 +1,35 @@
+# Public landing page: permit search discovery and citation.
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# User-initiated fetchers have provider-specific robots.txt behavior.
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Limit the named training/data-collection uses; public search stays allowed.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Also limits some Gemini/Vertex grounding; does not block Google Search.
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://kolmo.app/sitemap.xml
