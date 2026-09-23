@@ -666,14 +666,23 @@ main{flex:1;display:block;padding:20px 0 36px}
       });
 
       var data=await response.json();
-      if(!data.success){
+      if(!response.ok || data.success !== true){
         throw new Error(data.message||'Submission failed');
       }
 
-      if(window.posthog){
-        posthog.capture('waitlist_signup',{
-          source:'homepage'
-        });
+      // Provider acceptance is not proof of a new, durably stored signup.
+      // Analytics must never turn a successful submission into a form error.
+      try{
+        if(window.posthog && typeof window.posthog.capture === 'function'){
+          window.posthog.capture('waitlist_submission_accepted',{
+            source:'homepage',
+            surface:'landing',
+            schema_version:'1.1',
+            registration_status:'provider_accepted'
+          });
+        }
+      }catch(analyticsError){
+        // Do not retry the business submission because analytics failed.
       }
 
       message.className='waitlist-message success';
